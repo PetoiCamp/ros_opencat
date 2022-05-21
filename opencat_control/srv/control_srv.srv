@@ -1,0 +1,6 @@
+uint8 command
+uint8[] idx
+int16[] pos
+float32 delay
+---
+bool res
