@@ -14,6 +14,8 @@
 #include <termios.h>
 #include <unistd.h>
 #include <vector>
+#include <dirent.h>
+#include <unistd.h>
 
 using std::string;
 using std::vector;
@@ -52,13 +54,13 @@ class Serial
      * @return vector of bytes read
      **/
     vector<uint8_t> receive(size_t bytes = 1);
-
-    /**
-     * @brief find and list available serial ports
-     * @return %vector with path to the port as %string
-     **/
-    static vector<string> ListSerialPorts();
 };
+
+/**
+ * @brief find and list available serial ports
+ * @return %vector with path to the port as %string
+ **/
+vector<string> ListSerialPorts();
 } // namespace Serial
 
 #endif // SERIAL_H_

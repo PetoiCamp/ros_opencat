@@ -64,10 +64,33 @@ vector<uint8_t> Serial::receive(size_t bytes)
 {
     assert(bytes <= sizeof(read_buf));
     read(serial_dev, read_buf, bytes);
-    return vector<uint8_t>{read_buf, read_buf+bytes};
+    return vector<uint8_t>{read_buf, read_buf + bytes};
 }
 
-vector<string> Serial::ListSerialPorts()
+vector<string> ListSerialPorts()
 {
+    const string tty_path = "/sys/class/tty";
+    DIR *dir;
+    dirent *ent;
+    dir = opendir(tty_path.c_str());
+    vector<string> res;
+    if (dir != nullptr)
+    {
+        while ((ent = readdir(dir)) != nullptr)
+        {
+            string tty_name = string(ent->d_name);
+            string device_path = tty_path + "/" + tty_name + "/" + "device";
+            if (access(device_path.c_str(), F_OK) == 0)
+            {
+                res.push_back("/dev/" + tty_name);
+            }
+        }
+        closedir(dir);
+    }
+    else
+    {
+        std::cerr << "Error: Getting serial ports failed" << std::endl;
+    }
+    return res;
 }
-}
+} // namespace Serial
