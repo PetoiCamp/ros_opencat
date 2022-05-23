@@ -7,7 +7,9 @@
 #ifndef OPENCAT_SERIAL_H_
 #define OPENCAT_SERIAL_H_
 #include "opencat_serial/serial.hpp"
+#include <chrono>
 #include <string>
+#include <thread>
 #include <vector>
 
 using std::vector;
@@ -114,9 +116,36 @@ const vector<std::string> command_name{
     "kbf"   // BACK_FLIP
 };
 
-class Serial : protected ::Serial::Serial
+struct Task
 {
+    Task(Command _cmd) : cmd(_cmd), arguments{}, delay(0){};
+    Task(Command _cmd, float _delay) : cmd(_cmd), arguments{}, delay(_delay){};
+    Command cmd;
+    vector<int8_t> arguments;
+    float delay;
+};
 
+/**
+ * @brief wrapper class to communicate with OpenCat robot
+ * @inherit ::Serial::Serial, protected as we don't need to send arbitrary data
+ **/
+class Robot : protected ::Serial::Serial
+{
+  public:
+    /**
+     * @brief default constructor
+     * @param serial_port: serial port to connect the dog
+     **/
+    Robot(string serial_port);
+
+    /**
+     * @brief send task to robot
+     * @param task: %Task data pack
+     * @return response message from robot
+     **/
+    std::string SendTask(const Task task);
+
+  protected:
 };
 } // namespace OpenCat
 
