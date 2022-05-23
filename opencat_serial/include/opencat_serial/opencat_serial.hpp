@@ -34,7 +34,7 @@ enum Command : uint8_t
     SET_JOINTS,               // set all joints at once
 
     /** Gaits */
-    STEPING,     // stepping on the same spot
+    STEPPING,     // stepping on the same spot
     BACK,        // going back
     BACK_LEFT,   // TODO: add description
     BACK_RIGHT,  // TODO: add description
@@ -82,7 +82,7 @@ const vector<std::string> command_name{
     "L",   // SET_JOINTS
 
     /** Gaits */
-    "kvt",  // STEPING
+    "kvt",  // STEPPING
     "kbk",  // BACK
     "kbkL", // BACK_LEFT
     "kbkR", // BACK_RIGHT
@@ -146,6 +146,7 @@ class Robot : protected ::Serial::Serial
     std::string SendTask(const Task task);
 
   protected:
+    static const speed_t BAUD_RATE = B115200;
 };
 } // namespace OpenCat
 

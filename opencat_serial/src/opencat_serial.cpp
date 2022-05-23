@@ -9,8 +9,11 @@
 
 namespace OpenCat
 {
-Robot::Robot(string serial_port) : ::Serial::Serial(serial_port)
+Robot::Robot(string serial_port) : ::Serial::Serial(serial_port, BAUD_RATE)
 {
+    // wait for robot to boot up
+    using std::chrono::seconds;
+    std::this_thread::sleep_for(seconds(5));
 }
 
 std::string Robot::SendTask(const Task task)
@@ -31,8 +34,6 @@ std::string Robot::SendTask(const Task task)
     {
         std::cout << "task currently not implemented" << std::endl;
     }
-    for (uint8_t c : data)
-        std::cout << (char)c << std::endl;
     this->send(data);
     // delay as requested
     std::this_thread::sleep_for(milliseconds(size_t(task.delay * 1000)));

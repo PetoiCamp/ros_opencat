@@ -18,6 +18,11 @@ int main(int argc, char *argv[])
     // connect to first port available
     OpenCat::Robot rob(serial_ports[0]);
     std::cout << "start executing tasks..." << std::endl;
-    rob.SendTask({OpenCat::Command::BALANCE, 5});
+    rob.SendTask({OpenCat::SHUT_DOWN, 2});
+    rob.SendTask({OpenCat::Command::CALIBRATE, 2});
+    rob.SendTask({OpenCat::Command::BALANCE, 2});
+    rob.SendTask({OpenCat::Command::STEPPING, 5});
+    rob.SendTask({OpenCat::SHUT_DOWN, 2});
+    std::cout << "Demo finished!" << std::endl;
     return 0;
 }
