@@ -5,7 +5,6 @@
  * @date 2022.05.22
  **/
 #include "opencat_serial/opencat_serial.hpp"
-#include <chrono>
 
 namespace OpenCat
 {
@@ -24,15 +23,26 @@ std::string Robot::SendTask(const Task task)
     // no extra arguments
     if (task.arguments.empty())
     {
-        // cli commands
-        if (data[0] == 'k')
-        {
-            data.push_back('\n');
-        }
     }
     else
     {
-        std::cout << "task currently not implemented" << std::endl;
+        if (islower(data[0]) && data[0] != 'c')
+        {
+            std::cout << "task currently not implemented" << std::endl;
+            exit(-1);
+        }
+        std::copy(task.arguments.begin(), task.arguments.end(),
+                  std::back_inserter(data));
+    }
+
+    // different end character for cli and binary call
+    if (islower(data[0]))
+    {
+        data.push_back('\n');
+    }
+    else
+    {
+        data.push_back('~');
     }
     this->send(data);
     // delay as requested

@@ -11,6 +11,7 @@
 #include <string>
 #include <thread>
 #include <vector>
+#include <cctype>
 
 using std::vector;
 
@@ -32,9 +33,11 @@ enum Command : uint8_t
     MOVE_JOINT_SEQUENCE,      // move joints in sequence
     MOVE_JOINTS_SIMULTANEOUS, // move joints all at once
     SET_JOINTS,               // set all joints at once
+    PLAY_MELODY,              // play built-in melody
+    PLAY_CUSTOM_SOUND,        // play the cutom provided sound
 
     /** Gaits */
-    STEPPING,     // stepping on the same spot
+    STEPPING,    // stepping on the same spot
     BACK,        // going back
     BACK_LEFT,   // TODO: add description
     BACK_RIGHT,  // TODO: add description
@@ -80,6 +83,8 @@ const vector<std::string> command_name{
     "M",   // MOVE_JOINT_SEQUENCE
     "I",   // MOVE_JOINTS_SIMULTANEOUS
     "L",   // SET_JOINTS
+    "o",   // PLAY_MELODY
+    "B",   // PLAY_CUSTOM_SOUND
 
     /** Gaits */
     "kvt",  // STEPPING
@@ -116,12 +121,18 @@ const vector<std::string> command_name{
     "kbf"   // BACK_FLIP
 };
 
+/**
+ * @brief task structure defining a task
+ * @param cmd: %Command enum type specifying command
+ * @param arguments: %vector storing possible parameter
+ * @param delay: delay in seconds after finishing command
+ **/
 struct Task
 {
     Task(Command _cmd) : cmd(_cmd), arguments{}, delay(0){};
     Task(Command _cmd, float _delay) : cmd(_cmd), arguments{}, delay(_delay){};
     Command cmd;
-    vector<int8_t> arguments;
+    vector<uint8_t> arguments;
     float delay;
 };
 
