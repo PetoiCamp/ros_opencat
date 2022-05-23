@@ -1,3 +1,9 @@
+/**
+ * @brief source file for serial lib
+ * @file
+ * @author C.C
+ * @date 2022.05.22
+ **/
 #include "opencat_serial/serial.hpp"
 #include <cassert>
 
@@ -67,7 +73,7 @@ vector<uint8_t> Serial::receive(size_t bytes)
     return vector<uint8_t>{read_buf, read_buf + bytes};
 }
 
-vector<string> ListSerialPorts()
+const vector<string> ListSerialPorts()
 {
     const string tty_path = "/sys/class/tty";
     DIR *dir;
@@ -82,7 +88,13 @@ vector<string> ListSerialPorts()
             string device_path = tty_path + "/" + tty_name + "/" + "device";
             if (access(device_path.c_str(), F_OK) == 0)
             {
-                res.push_back("/dev/" + tty_name);
+                char sym_link[256] = "";
+                readlink(device_path.c_str(), sym_link, 256);
+                // possible that pointing to the driver
+                if (string(sym_link) != "../../../serial8250")
+                {
+                    res.push_back("/dev/" + tty_name);
+                }
             }
         }
         closedir(dir);

@@ -59,8 +59,9 @@ class Serial
 /**
  * @brief find and list available serial ports
  * @return %vector with path to the port as %string
+ * @ref: https://stackoverflow.com/questions/15342804/c-linux-detect-all-serial-ports
  **/
-vector<string> ListSerialPorts();
+const vector<string> ListSerialPorts();
 } // namespace Serial
 
 #endif // SERIAL_H_
