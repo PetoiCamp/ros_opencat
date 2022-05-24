@@ -1,6 +1,5 @@
-uint8 command
-uint8[] idx
-int16[] pos
+uint8 cmd
+int16[] arguments
 float32 delay
 ---
 bool res

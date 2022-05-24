@@ -11,6 +11,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(
   catkin REQUIRED COMPONENTS
   roscpp
+  opencat_serial
   std_msgs
   message_generation
 )
@@ -106,9 +107,8 @@ generate_messages(
 catkin_package(
   INCLUDE_DIRS include
   #  LIBRARIES opencat_control
-  CATKIN_DEPENDS roscpp
+  CATKIN_DEPENDS roscpp message_runtime opencat_serial
   #  DEPENDS system_lib
-  CATKIN_DEPENDS message_runtime
 )
 
 ###########
