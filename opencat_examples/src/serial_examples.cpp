@@ -19,8 +19,6 @@ const OpenCat::TaskArgs music{
     4,  27, 4,  20, 4,  20, 4,  24, 4,  22, 1,  22, 1,  -1, 2};
 
 std::vector<OpenCat::Task> tasks{
-    // easier to stand
-    {OpenCat::Command::CALIB_POSE, 2},
     {OpenCat::Command::BALANCE, 2},
     // built-in skill
     {OpenCat::Command::CHECK_AROUND, 3},
@@ -59,7 +57,9 @@ int main(int argc, char *argv[])
     // connect to first port available
     OpenCat::Robot rob(serial_ports[0]);
     std::cout << "start executing tasks..." << std::endl;
+    // easier to stand
     rob.SendTask({OpenCat::Command::CALIB_POSE, 2}, true);
+    // sending multiple task
     rob.SendMultipleTasks(tasks, true);
     std::cout << "Demo finished!" << std::endl;
     return 0;

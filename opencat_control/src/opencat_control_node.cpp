@@ -20,7 +20,8 @@ int main(int argc, char *argv[])
     ros::NodeHandle node_handle;
 
     ros::ServiceServer service = node_handle.advertiseService(
-        "control_cat", &OpenCat::ROSRobot::primitive_service_handler, &rosbot);
+        "send_task", &OpenCat::ROSRobot::primitive_service_handler, &rosbot);
     ROS_INFO("Ready to receive command");
+    ros::spin();
     return 0;
 }
