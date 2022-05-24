@@ -65,4 +65,12 @@ std::string Robot::SendTask(const Task task, bool verbose)
     std::this_thread::sleep_for(milliseconds(size_t(task.delay * 1000)));
     return "TODO: change this";
 }
+
+void Robot::SendMultipleTasks(const vector<Task> &tasks, bool verbose)
+{
+    for (auto &task:tasks)
+    {
+        this->SendTask(task, verbose);
+    }
+}
 } // namespace OpenCat

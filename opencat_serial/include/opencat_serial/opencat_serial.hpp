@@ -113,6 +113,8 @@ class Robot : protected ::Serial::Serial
      **/
     std::string SendTask(const Task task, bool verbose = false);
 
+    void SendMultipleTasks(const vector<Task> &tasks, bool verbose=false);
+
   protected:
     static const speed_t BAUD_RATE = B115200;
 };
