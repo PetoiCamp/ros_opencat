@@ -7,11 +7,13 @@
 #ifndef OPENCAT_SERIAL_H_
 #define OPENCAT_SERIAL_H_
 #include "opencat_serial/serial.hpp"
+#include "opencat_serial/opencat_serial_data.hpp"
+#include <cctype>
 #include <chrono>
 #include <string>
 #include <thread>
 #include <vector>
-#include <cctype>
+#include <cassert>
 
 using std::vector;
 
@@ -71,55 +73,8 @@ enum Command : uint8_t
     BACK_FLIP
 };
 
-const vector<std::string> command_name{
-    /** Control Commands */
-    "d",   // SHUT_DOWN
-    "g",   // SWITCH_GYRO
-    "p",   // PAUSE_MOTION
-    "c",   // CALIBRATE
-    "krc", // RECOVERING
-    "T",   // REPEAT_SKILL
-    "K",   // PLAY_CUSTOM_SKILL
-    "M",   // MOVE_JOINT_SEQUENCE
-    "I",   // MOVE_JOINTS_SIMULTANEOUS
-    "L",   // SET_JOINTS
-    "o",   // PLAY_MELODY
-    "B",   // PLAY_CUSTOM_SOUND
-
-    /** Gaits */
-    "kvt",  // STEPPING
-    "kbk",  // BACK
-    "kbkL", // BACK_LEFT
-    "kbkR", // BACK_RIGHT
-    "kcrF", // CRAWL
-    "kcrL", // CRAWL_LEFT
-    "kcrR", // CRAWL_RIGHT
-    "kwkF", // WALK
-    "kwkL", // WALK_LEFT
-    "kwkR", // WALK_RIGHT
-    "ktrF", // TROT
-    "ktrL", // TROT_LEFT
-    "ktrR", // TROT_RIGHT
-    "kbdF", // BOUND
-
-    /** Postures */
-    "kbalance", // BALANCE
-    "kbuttUp",  // BUTT_UP
-    "kcalib",   // CALIB_POSE
-    "krest",    // REST
-    "ksit",     // SIT
-    "ksleep",   // SLEEP
-    "kstr",     // STRETCH
-    "kzero",    // ZERO
-
-    /** Behavior */
-    "kck",  // CHECK_AROUND
-    "khi",  // GREETING
-    "kpee", // PEE
-    "kpu",  // PUSH_UP
-    "kpd",  // MIMIC_DEATH
-    "kbf"   // BACK_FLIP
-};
+// alias for command arguments
+typedef vector<int16_t> TaskArgs;
 
 /**
  * @brief task structure defining a task
@@ -131,8 +86,10 @@ struct Task
 {
     Task(Command _cmd) : cmd(_cmd), arguments{}, delay(0){};
     Task(Command _cmd, float _delay) : cmd(_cmd), arguments{}, delay(_delay){};
+    Task(Command _cmd, TaskArgs _args, float _delay)
+        : cmd(_cmd), arguments{_args.begin(), _args.end()}, delay(_delay){};
     Command cmd;
-    vector<uint8_t> arguments;
+    TaskArgs arguments;
     float delay;
 };
 
@@ -154,7 +111,7 @@ class Robot : protected ::Serial::Serial
      * @param task: %Task data pack
      * @return response message from robot
      **/
-    std::string SendTask(const Task task);
+    std::string SendTask(const Task task, bool verbose = false);
 
   protected:
     static const speed_t BAUD_RATE = B115200;

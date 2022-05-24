@@ -15,34 +15,50 @@ Robot::Robot(string serial_port) : ::Serial::Serial(serial_port, BAUD_RATE)
     std::this_thread::sleep_for(seconds(5));
 }
 
-std::string Robot::SendTask(const Task task)
+std::string Robot::SendTask(const Task task, bool verbose)
 {
     using std::chrono::milliseconds;
     string cmd_name = command_name[task.cmd];
     vector<uint8_t> data(cmd_name.begin(), cmd_name.end());
     // no extra arguments
-    if (task.arguments.empty())
-    {
-    }
-    else
+    if (!task.arguments.empty())
     {
         if (islower(data[0]) && data[0] != 'c')
         {
             std::cout << "task currently not implemented" << std::endl;
             exit(-1);
         }
-        std::copy(task.arguments.begin(), task.arguments.end(),
-                  std::back_inserter(data));
+        data.reserve(data.size() + task.arguments.size() + 1);
+        for (auto arg : task.arguments)
+        {
+            data.push_back((uint8_t)arg);
+        }
     }
 
-    // different end character for cli and binary call
-    if (islower(data[0]))
+    // special checks
+    if (data[0] == 'L')
     {
+        assert(task.arguments.size() == 16);
+    }
+    // different end character for cli and binary call
+    switch (data[0])
+    {
+    case 'T':
+    case 'M':
+        break;
+    case 'L':
+    case 'I':
+    case 'B':
+    case 'K':
+        data.push_back('~');
+        break;
+    // all lower bits
+    default:
         data.push_back('\n');
     }
-    else
+    if (verbose)
     {
-        data.push_back('~');
+        std::cout << "Start executing: " << command_description[task.cmd] << std::endl;
     }
     this->send(data);
     // delay as requested
