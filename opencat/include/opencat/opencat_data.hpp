@@ -1,5 +1,5 @@
 /**
- * @brief unimportant data for opencat_serial lib
+ * @brief unimportant data for opencat lib
  * @author C.C
  * @date 2022.05.23
  **/
