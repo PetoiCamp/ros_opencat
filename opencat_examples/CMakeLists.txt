@@ -11,7 +11,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   opencat_serial
-  opencat_control
+  opencat
 )
 
 ## System dependencies are found with CMake's conventions
@@ -106,7 +106,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES opencat_examples
- CATKIN_DEPENDS roscpp opencat_serial opencat_control
+ CATKIN_DEPENDS roscpp opencat_serial
 #  DEPENDS system_lib
 )
 

@@ -1,4 +1,4 @@
-#include "opencat_control/opencat_control.hpp"
+#include "opencat_server/opencat_server.hpp"
 #include "opencat_serial/opencat_serial.hpp"
 #include "ros/ros.h"
 
