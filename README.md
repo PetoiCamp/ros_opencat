@@ -21,5 +21,8 @@ source ./devel/setup.sh
 ### Examples
 After sourcing the setup file, run
 ``` sh
-rosrun opencat_examples opencar_examples_serial
+# examples using serial library
+rosrun opencat_examples opencat_examples_serial
+# examples using oppencat ros service
+rosrun opencat_examples opencat_examples_control
 ```

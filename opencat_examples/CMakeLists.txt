@@ -11,6 +11,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   opencat_serial
+  opencat_control
 )
 
 ## System dependencies are found with CMake's conventions
@@ -105,7 +106,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES opencat_examples
- CATKIN_DEPENDS roscpp opencat_serial
+ CATKIN_DEPENDS roscpp opencat_serial opencat_control
 #  DEPENDS system_lib
 )
 
@@ -134,6 +135,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(${PROJECT_NAME}_serial src/serial_examples.cpp)
+add_executable(${PROJECT_NAME}_control src/control_examples.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -147,6 +149,10 @@ add_executable(${PROJECT_NAME}_serial src/serial_examples.cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(${PROJECT_NAME}_serial
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(${PROJECT_NAME}_control
   ${catkin_LIBRARIES}
 )
 
