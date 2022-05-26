@@ -19,11 +19,19 @@ source ./devel/setup.sh
 ```
 
 ### Examples
-After sourcing the setup file, run
++ using serial library
 ``` sh
-# examples using serial library
 rosrun opencat_examples opencat_examples_serial
+```
++ using ros service
+
+``` sh
+# start core
+roscore
+# start service server
+rosrun opencat_server opencat_service_node
 # examples using oppencat ros service in C++
-rosrun opencat_examples opencat_examples_control
+rosrun opencat_examples opencat_examples_client_cpp
 # examples using opencat ros service in python
+rosrun opencat_examples opencat_examples_client_py
 ```
