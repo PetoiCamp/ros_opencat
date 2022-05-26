@@ -23,6 +23,7 @@ After sourcing the setup file, run
 ``` sh
 # examples using serial library
 rosrun opencat_examples opencat_examples_serial
-# examples using oppencat ros service
+# examples using oppencat ros service in C++
 rosrun opencat_examples opencat_examples_control
+# examples using opencat ros service in python
 ```
