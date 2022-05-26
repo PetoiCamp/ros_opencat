@@ -33,7 +33,7 @@ class Robot : protected ::Serial::Serial
      * @param task: %Task data pack
      * @return response message from robot
      **/
-    std::string SendTask(const Task task, bool verbose = false);
+    std::string SendTask(const Task &task, bool verbose = false);
 
     void SendMultipleTasks(const vector<Task> &tasks, bool verbose=false);
 

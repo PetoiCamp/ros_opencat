@@ -19,7 +19,7 @@ Robot::Robot(string serial_port) : ::Serial::Serial(serial_port, BAUD_RATE)
     std::this_thread::sleep_for(seconds(5));
 }
 
-std::string Robot::SendTask(const Task task, bool verbose)
+std::string Robot::SendTask(const Task &task, bool verbose)
 {
     using std::chrono::milliseconds;
     string cmd_name = command_name[task.cmd];
