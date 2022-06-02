@@ -6,6 +6,7 @@
  **/
 #ifndef SERIAL_H_
 #define SERIAL_H_
+#include <dirent.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <iostream>
@@ -14,8 +15,6 @@
 #include <termios.h>
 #include <unistd.h>
 #include <vector>
-#include <dirent.h>
-#include <unistd.h>
 
 using std::string;
 using std::vector;
@@ -54,12 +53,19 @@ class Serial
      * @return vector of bytes read
      **/
     vector<uint8_t> receive(size_t bytes = 1);
+
+    /**
+     * @brief read until reach endline
+     * @return string read
+     **/
+    std::string readline();
 };
 
 /**
  * @brief find and list available serial ports
  * @return %vector with path to the port as %string
- * @ref: https://stackoverflow.com/questions/15342804/c-linux-detect-all-serial-ports
+ * @ref:
+ *https://stackoverflow.com/questions/15342804/c-linux-detect-all-serial-ports
  **/
 const vector<string> ListSerialPorts();
 } // namespace Serial

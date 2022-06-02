@@ -73,6 +73,21 @@ vector<uint8_t> Serial::receive(size_t bytes)
     return vector<uint8_t>{read_buf, read_buf + bytes};
 }
 
+std::string Serial::readline()
+{
+    std::string res;
+    do
+    {
+        read_buf[0] = '\0';
+        read(serial_dev, read_buf, 1);
+        res.push_back((char)read_buf[0]);
+    } while (res.back() != '\n');
+    // remove newline chars
+    while (res.back() == '\r' || res.back() == '\n')
+        res.pop_back();
+    return res;
+}
+
 const vector<string> ListSerialPorts()
 {
     const string tty_path = "/sys/class/tty";

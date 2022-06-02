@@ -6,8 +6,8 @@
  **/
 #include "opencat_serial/opencat_serial.hpp"
 #include "opencat/opencat_data.hpp"
-#include <chrono>
 #include <cassert>
+#include <chrono>
 #include <thread>
 
 namespace OpenCat
@@ -17,6 +17,9 @@ Robot::Robot(string serial_port) : ::Serial::Serial(serial_port, BAUD_RATE)
     // wait for robot to boot up
     using std::chrono::seconds;
     std::this_thread::sleep_for(seconds(5));
+    // auto aba = this->receive(81);
+    // for (auto c:aba)
+    //     std::cout << (int)c << std::endl;
 }
 
 std::string Robot::SendTask(const Task &task, bool verbose)
@@ -62,17 +65,20 @@ std::string Robot::SendTask(const Task &task, bool verbose)
     }
     if (verbose)
     {
-        std::cout << "Start executing: " << command_description[task.cmd] << std::endl;
+        std::cout << "Start executing: " << command_description[task.cmd]
+                  << std::endl;
     }
     this->send(data);
     // delay as requested
     std::this_thread::sleep_for(milliseconds(size_t(task.delay * 1000)));
-    return "TODO: change this";
+    // get string
+    this->receive(1);
+    return "aba";
 }
 
 void Robot::SendMultipleTasks(const vector<Task> &tasks, bool verbose)
 {
-    for (auto &task:tasks)
+    for (auto &task : tasks)
     {
         this->SendTask(task, verbose);
     }
