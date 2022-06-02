@@ -48,9 +48,10 @@ Serial::Serial(string serial_port, speed_t baud_rate, tcflag_t data_bits,
                            // (e.g. newline chars)
     tty.c_oflag &=
         ~ONLCR; // Prevent conversion of newline to carriage return/line feed
+
     // Wait for up to 1s (10 deciseconds), returning as soon as any data is
     // received.
-    tty.c_cc[VTIME] = 10;
+    tty.c_cc[VTIME] = 100;
     tty.c_cc[VMIN] = 0;
     // Set in/out baud rate
     cfsetspeed(&tty, baud_rate);
