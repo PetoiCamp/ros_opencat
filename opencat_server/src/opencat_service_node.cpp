@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    auto serial_ports = Serial::ListSerialPorts();
+    auto serial_ports = OpenCat::ListSerialPorts();
     if (serial_ports.empty())
     {
         std::cerr << "no serial port detected! aborting" << std::endl;

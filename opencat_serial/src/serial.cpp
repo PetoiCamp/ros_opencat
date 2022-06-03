@@ -89,36 +89,4 @@ std::string Serial::readline()
     return res;
 }
 
-const vector<string> ListSerialPorts()
-{
-    const string tty_path = "/sys/class/tty";
-    DIR *dir;
-    dirent *ent;
-    dir = opendir(tty_path.c_str());
-    vector<string> res;
-    if (dir != nullptr)
-    {
-        while ((ent = readdir(dir)) != nullptr)
-        {
-            string tty_name = string(ent->d_name);
-            string device_path = tty_path + "/" + tty_name + "/" + "device";
-            if (access(device_path.c_str(), F_OK) == 0)
-            {
-                char sym_link[256] = "";
-                readlink(device_path.c_str(), sym_link, 256);
-                // possible that pointing to the driver
-                if (string(sym_link) != "../../../serial8250")
-                {
-                    res.push_back("/dev/" + tty_name);
-                }
-            }
-        }
-        closedir(dir);
-    }
-    else
-    {
-        std::cerr << "Error: Getting serial ports failed" << std::endl;
-    }
-    return res;
-}
 } // namespace Serial
