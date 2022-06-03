@@ -1,5 +1,5 @@
 #include "opencat_serial/opencat_serial.hpp"
-#include "opencat_serial/serial.hpp"
+using namespace OpenCat;
 
 const vector<int16_t> pee{
     -4, 0,  10,  1,  2,   3,  3,  30,  20, 0,   0,  15, -10, 60, -10,
@@ -42,18 +42,17 @@ std::vector<OpenCat::Task> tasks{
 
 int main(int argc, char *argv[])
 {
-    auto serial_ports = Serial::ListSerialPorts();
+    auto serial_ports = OpenCat::ListSerialPorts();
     if (serial_ports.empty())
     {
         std::cerr << "no serial port detected! aborting" << std::endl;
         exit(-1);
     }
     std::cout << "detected serial ports:" << std::endl;
-    for (auto &port : serial_ports)
+    for (auto &port:serial_ports)
     {
         std::cout << port << std::endl;
     }
-
     // connect to first port available
     OpenCat::Robot rob(serial_ports[0]);
     std::cout << "start executing tasks..." << std::endl;

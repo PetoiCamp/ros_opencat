@@ -8,18 +8,20 @@
 #include "opencat/opencat_data.hpp"
 #include <cassert>
 #include <chrono>
+#include <dirent.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <termios.h>
 #include <thread>
 
 namespace OpenCat
 {
-Robot::Robot(string serial_port) : ::Serial::Serial(serial_port, BAUD_RATE)
+Robot::Robot(string serial_port) : ::serial::Serial(serial_port, 115200)
 {
     // wait for robot to boot up
     using std::chrono::seconds;
     std::this_thread::sleep_for(seconds(5));
-    // auto aba = this->receive(81);
-    // for (auto c:aba)
-    //     std::cout << (int)c << std::endl;
+    this->read(999);
 }
 
 std::string Robot::SendTask(const Task &task, bool verbose)
@@ -68,12 +70,11 @@ std::string Robot::SendTask(const Task &task, bool verbose)
         std::cout << "Start executing: " << command_description[task.cmd]
                   << std::endl;
     }
-    this->send(data);
+    this->write(data);
     // delay as requested
     std::this_thread::sleep_for(milliseconds(size_t(task.delay * 1000)));
     // get string
-    this->receive(1);
-    return "aba";
+    return this->read(999);
 }
 
 void Robot::SendMultipleTasks(const vector<Task> &tasks, bool verbose)
@@ -82,5 +83,38 @@ void Robot::SendMultipleTasks(const vector<Task> &tasks, bool verbose)
     {
         this->SendTask(task, verbose);
     }
+}
+
+const vector<string> ListSerialPorts()
+{
+    const string tty_path = "/sys/class/tty";
+    DIR *dir;
+    dirent *ent;
+    dir = opendir(tty_path.c_str());
+    vector<string> res;
+    if (dir != nullptr)
+    {
+        while ((ent = readdir(dir)) != nullptr)
+        {
+            string tty_name = string(ent->d_name);
+            string device_path = tty_path + "/" + tty_name + "/" + "device";
+            if (access(device_path.c_str(), F_OK) == 0)
+            {
+                char sym_link[256] = "";
+                readlink(device_path.c_str(), sym_link, 256);
+                // possible that pointing to the driver
+                if (string(sym_link) != "../../../serial8250")
+                {
+                    res.push_back("/dev/" + tty_name);
+                }
+            }
+        }
+        closedir(dir);
+    }
+    else
+    {
+        std::cerr << "Error: Getting serial ports failed" << std::endl;
+    }
+    return res;
 }
 } // namespace OpenCat

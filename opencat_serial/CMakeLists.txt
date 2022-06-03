@@ -12,6 +12,7 @@ find_package(
   catkin REQUIRED COMPONENTS
   roscpp
   opencat
+  serial
 )
 
 ## System dependencies are found with CMake's conventions
@@ -106,7 +107,7 @@ find_package(
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES ${PROJECT_NAME}
-  CATKIN_DEPENDS roscpp
+  CATKIN_DEPENDS roscpp serial
   #  DEPENDS system_lib
 )
 
@@ -124,7 +125,6 @@ include_directories(
 ## Declare a C++ library
 add_library(${PROJECT_NAME}
   src/${PROJECT_NAME}.cpp
-  src/serial.cpp
 )
 
 ## Add cmake target dependencies of the library

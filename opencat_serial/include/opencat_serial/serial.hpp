@@ -6,9 +6,6 @@
  **/
 #ifndef SERIAL_H_
 #define SERIAL_H_
-#include <dirent.h>
-#include <errno.h>
-#include <fcntl.h>
 #include <iostream>
 #include <string.h>
 #include <string>
@@ -60,14 +57,6 @@ class Serial
      **/
     std::string readline();
 };
-
-/**
- * @brief find and list available serial ports
- * @return %vector with path to the port as %string
- * @ref:
- *https://stackoverflow.com/questions/15342804/c-linux-detect-all-serial-ports
- **/
-const vector<string> ListSerialPorts();
 } // namespace Serial
 
 #endif // SERIAL_H_
