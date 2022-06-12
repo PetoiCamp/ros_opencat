@@ -6,11 +6,9 @@
  **/
 #ifndef OPENCAT_H_
 #define OPENCAT_H_
-#include "opencat/base_task.h"
-#include "ros/ros.h"
+#include "opencat/srv/base_task.hpp"
 #include <cstdint>
 #include <vector>
-using opencat::base_task;
 using std::vector;
 
 namespace OpenCat
@@ -70,7 +68,7 @@ enum Command : uint8_t
 };
 
 // alias for command arguments
-typedef vector<int16_t> TaskArgs;
+using TaskArgs=vector<int16_t>;
 
 /**
  * @brief task structure defining a task
@@ -89,39 +87,38 @@ struct Task
     float delay;
 };
 
-class ServiceClient
-{
-  public:
-    ServiceClient()
-        : node_handler(), send_task(node_handler.serviceClient<base_task>(
-                              "opencat_send_task")){};
-    /**
-     * @brief send task by calling service
-     * @param task: %Task to send
-     **/
-    void SendTask(const Task &task)
-    {
-        static base_task srv;
-        srv.request.cmd = task.cmd;
-        srv.request.delay = task.delay;
-        srv.request.arguments = task.arguments;
-        send_task.call(srv);
-    };
+// class ServiceClient
+// {
+//   public:
+//     ServiceClient()
+//         : node_handler(), send_task(node_handler.serviceClient<base_task>(
+//                               "opencat_send_task")){};
+//     /**
+//      * @brief send task by calling service
+//      * @param task: %Task to send
+//      **/
+//     void SendTask(const Task &task)
+//     {
+//         static base_task srv;
+//         srv.request.cmd = task.cmd;
+//         srv.request.delay = task.delay;
+//         srv.request.arguments = task.arguments;
+//         send_task.call(srv);
+//     };
 
-    /**
-     * @brief send multiple tasks
-     * @param tasks: %vector of %task
-     **/
-    void SendMultipleTasks(const vector<Task> &tasks)
-    {
-        for (auto &task : tasks)
-            this->SendTask(task);
-    };
+//     /**
+//      * @brief send multiple tasks
+//      * @param tasks: %vector of %task
+//      **/
+//     void SendMultipleTasks(const vector<Task> &tasks)
+//     {
+//         for (auto &task : tasks)
+//             this->SendTask(task);
+//     };
 
-  protected:
-    ros::NodeHandle node_handler;
-    ros::ServiceClient send_task;
-};
+//   protected:
+//     ros::NodeHandle node_handler;
+//     ros::ServiceClient send_task;
+// };
 } // namespace OpenCat
-
 #endif // OPENCAT_H_

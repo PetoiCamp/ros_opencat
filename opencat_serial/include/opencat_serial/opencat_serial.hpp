@@ -49,5 +49,4 @@ class Robot : protected ::serial::Serial
  **/
 const vector<string> ListSerialPorts();
 } // namespace OpenCat
-
 #endif // OPENCAT_SERIAL_H_
