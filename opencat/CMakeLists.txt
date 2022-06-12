@@ -35,6 +35,8 @@ install(
   DESTINATION include
 )
 
+ament_export_dependencies(rosidl_default_generators)
+
 # install(
 #   TARGETS ${PROJECT_NAME}
 #   INCLUDES DESTINATION include
