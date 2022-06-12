@@ -18,16 +18,17 @@ int main(int argc, char *argv[])
         std::cout << port << std::endl;
     }
     OpenCat::ROSRobot rosbot(serial_ports[0]);
-    rclcpp::init(argc, argv);
 
+    rclcpp::init(argc, argv);
     std::shared_ptr<rclcpp::Node> node =
         rclcpp::Node::make_shared("opencat_control_node");
 
     auto service = node->create_service<BaseTask>(
         "opencat_send_task",
-        std::bind(&OpenCat::ROSRobot::primitive_service_handler, &rosbot, _1, _2));
+        std::bind(&OpenCat::ROSRobot::primitive_service_handler, &rosbot, _1,
+                  _2));
 
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add two ints.");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to receive commands.");
 
     rclcpp::spin(node);
     rclcpp::shutdown();

@@ -23,13 +23,19 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 find_package(opencat_serial REQUIRED)
+find_package(rclcpp REQUIRED)
 
-add_executable(serial_example src/serial_examples.cpp)
+add_executable(serial_example src/serial_example.cpp)
 ament_target_dependencies(serial_example
   opencat_serial)
 
+add_executable(client_example src/client_example.cpp)
+ament_target_dependencies(client_example
+  opencat_serial
+  rclcpp)
+
 install(
-  TARGETS serial_example
+  TARGETS serial_example client_example
   DESTINATION lib/${PROJECT_NAME}
   )
 

@@ -8,6 +8,7 @@
   <license>MIT</license>
 
   <depend>opencat_serial</depend>
+  <depend>opencat</depend>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <test_depend>ament_lint_auto</test_depend>
