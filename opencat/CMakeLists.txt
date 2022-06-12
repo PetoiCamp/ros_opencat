@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(opencat)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -24,21 +25,32 @@ find_package(ament_cmake REQUIRED)
 # service files
 find_package(rosidl_default_generators REQUIRED)
 
-rosidl_generate_interfaces(${PROJECT_NAME}
+rosidl_generate_interfaces(${PROJECT_NAME}_srv
   "srv/BaseTask.srv"
 )
 
 include_directories(include)
+add_library(${PROJECT_NAME} src/opencat/opencat.cpp)
+rosidl_target_interfaces(${PROJECT_NAME}
+      ${PROJECT_NAME}_srv "rosidl_typesupport_cpp")
+
+ament_export_targets(${PROJECT_NAME} HAS_LIBRARY_TARGET)
+ament_export_dependencies(rosidl_default_generators)
+
 # export lib
 install(
   DIRECTORY include/
   DESTINATION include
 )
 
-# install(
-#   TARGETS ${PROJECT_NAME}
-#   INCLUDES DESTINATION include
-# )
+install(
+  TARGETS ${PROJECT_NAME}
+  EXPORT ${PROJECT_NAME}
+  LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
+  INCLUDES DESTINATION include
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

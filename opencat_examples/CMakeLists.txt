@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
-project(opencat_serial)
+project(opencat_examples)
+
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Default to C99
@@ -9,7 +10,7 @@ endif()
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 17)
+  set(CMAKE_CXX_STANDARD 14)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -20,34 +21,23 @@ endif()
 find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
-find_package(serial REQUIRED)
-find_package(opencat REQUIRED)
+# find_package(<dependency> REQUIRED)
+find_package(opencat_serial REQUIRED)
+find_package(rclcpp REQUIRED)
 
-include_directories(include)
-add_library(
-  ${PROJECT_NAME}
-  src/${PROJECT_NAME}/${PROJECT_NAME}.cpp)
+add_executable(serial_example src/serial_example.cpp)
+ament_target_dependencies(serial_example
+  opencat_serial)
 
-ament_target_dependencies(${PROJECT_NAME}
-  opencat
-  serial)
-
-ament_export_targets(${PROJECT_NAME} HAS_LIBRARY_TARGET)
-ament_export_dependencies(opencat serial)
+add_executable(client_example src/client_example.cpp)
+ament_target_dependencies(client_example
+  opencat_serial
+  rclcpp)
 
 install(
-  DIRECTORY include/
-  DESTINATION include
-)
-
-install(
-  TARGETS ${PROJECT_NAME}
-  EXPORT ${PROJECT_NAME}
-  LIBRARY DESTINATION lib
-  ARCHIVE DESTINATION lib
-  RUNTIME DESTINATION bin
-  INCLUDES DESTINATION include
-)
+  TARGETS serial_example client_example
+  DESTINATION lib/${PROJECT_NAME}
+  )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
