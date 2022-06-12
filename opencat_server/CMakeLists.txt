@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(opencat)
+project(opencat_server)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Default to C99
@@ -16,32 +16,24 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-
 # find dependencies
 find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
-# service files
-find_package(rosidl_default_generators REQUIRED)
-
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "srv/BaseTask.srv"
-)
+find_package(opencat_serial REQUIRED)
+find_package(rclcpp REQUIRED)
 
 include_directories(include)
-# export lib
-install(
-  DIRECTORY include/
-  DESTINATION include
-)
-
-ament_export_dependencies(rosidl_default_generators)
-
-# install(
-#   TARGETS ${PROJECT_NAME}
-#   INCLUDES DESTINATION include
-# )
+add_executable(
+  opencat_service_node
+  src/opencat_service_node.cpp
+  src/opencat_server/opencat_server.cpp)
+ament_target_dependencies(
+  opencat_service_node
+  opencat_serial
+  rclcpp
+  )
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
