@@ -1,6 +1,6 @@
 # ros_opencat
 
-Control robots powered by [OpenCat](https://github.com/PetoiCamp/OpenCat) using [ROS](https://www.ros.org/).
+Control robots powered by [OpenCat](https://github.com/PetoiCamp/OpenCat) using [ROS2](https://www.ros.org/). There's also a ROS1 branch [here](https://github.com/TomCC7/ros_opencat/tree/ros1).
 
 ## Description
 + `opencat_serial` - serial library for OpenCat implemented in C++
@@ -11,9 +11,7 @@ Control robots powered by [OpenCat](https://github.com/PetoiCamp/OpenCat) using 
 ## Usage
 ### Install
 
-**NOTE**: due to multi-threading in make process, `catkin_make` may fail, in that case just rerun the command multiple times.
-
-Make sure you have installed ROS and can run `catkin_make`. In `src` directory, run
+Make sure you have installed ROS and can run `colcon`. In `src` directory, run
 ``` sh
 git clone https://github.com/TomCC7/ros_opencat
 cd ros_opencat
@@ -21,8 +19,8 @@ cd ros_opencat
 git submodule init
 git submodule update
 cd ../..
-catkin_make
-source ./devel/setup.sh
+colcon build
+source ./install/setup.bash
 ```
 
 ### Using ROS on Raspberry Pi
@@ -55,7 +53,7 @@ cd ../../..
 
 ```bash
 docker run -v path/to/workspace:/workspace \
--it --rm --privileged --network host --name ros ros:noetic-robot
+-it --rm --privileged --network host --name ros ros:foxy-robot
 ```
 
 + source files and build inside the container
@@ -63,60 +61,36 @@ docker run -v path/to/workspace:/workspace \
 ```bash
 cd /workspace
 source /opt/ros/noetic/setup.bash
-catkin_make
+colcon build
 source devel/setup.bash
 ```
 
 + run examples (see [Examples](#Examples]) more more)
 
 ```bash
-rosrun opencat_examples opencat_examples_serial
+ros2 run opencat_examples opencat_examples_serial
 ```
 
 
 
 ### Multiple Machines ([ref](http://wiki.ros.org/ROS/Tutorials/MultipleMachines))
-
-Ros is designed with distributed computing in mind. Here's a simple example on how to run nodes on different machines.
-
-+ on host machine (usually more powerful than Raspberry Pi)
-
-```bash
-# launch server
-roscore
-```
-
-+ run service node on Raspberry Pi
-
-```bash
-export ROS_MASTER_URI=http://<Host_IP>:11311/
-rosrun opencat_server opencat_service_node
-```
-
-+ send command from host
-
-```bash
-rosrun opencat_examples opencat_examples_client_cpp
-```
-
+TODO
 
 
 ## Examples
 + using serial library
 ``` sh
-rosrun opencat_examples opencat_examples_serial
+ros2 run opencat_examples opencat_examples_serial
 ```
 + using ROS service
 
 ``` sh
-# start core
-roscore
 # start service server
-rosrun opencat_server opencat_service_node
+ros2 run opencat_server opencat_service_node
 # examples using oppencat ros service in C++
-rosrun opencat_examples opencat_examples_client_cpp
+ros2 run opencat_examples opencat_examples_client_cpp
 # examples using opencat ros service in python
-rosrun opencat_examples opencat_examples_client_py
+ros2 run opencat_examples opencat_examples_client_py
 ```
 
 
