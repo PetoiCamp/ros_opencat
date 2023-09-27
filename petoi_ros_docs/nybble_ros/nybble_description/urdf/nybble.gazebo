@@ -1,0 +1,980 @@
+<?xml version="1.0" ?>
+<robot name="nybble" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo>
+<gazebo reference="base_link">
+ <visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual>  
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="servo_rfs__1">
+  <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="thigh_rf_1">
+  <visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="horn_2__1">
+    <visual>  
+    <material>  
+      <ambient>244 229 167 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="shank_rf_1">
+   <visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="servo_lfs__1">
+    <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="thigh_lf__1">
+   <visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="horn_4_1">
+    <visual>  
+    <material>  
+      <ambient>244 229 167 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="shank_lf__1">
+     <visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="servo_lrs__1">
+  <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="thigh_rr_1">
+<visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual>  
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="horn_6_1">
+  <visual>  
+    <material>  
+      <ambient>244 229 167 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="shank_rr_1">
+<visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="servo_rrs__1">
+  <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="thigh_lr__1">
+  <visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="shank_lr_1">
+  <visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="horn_7__1">
+   <visual>  
+    <material>  
+      <ambient>244 229 167 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="servo_tail__1">
+  <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="servo_neck__1">
+  <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="ultrasonic__1">
+<visual>  
+    <material>  
+      <ambient>132 132 122 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="head__1">
+<visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="horn_10_1">
+  <visual>  
+    <material>  
+      <ambient>244 229  1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="neck__1">
+<visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="tail_1">
+  <visual>  
+    <material>  
+      <ambient>243 226 198 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+ <visual>  
+    <material>  
+      <ambient>160 160 160 1.0</ambient>  
+     </material>  
+  </visual> 
+<gazebo reference="screwr_1_1">
+  <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="pcb__1">
+  <visual>  
+    <material>  
+      <ambient>221 255 219 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="battery_1">
+  <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_4_1">
+<visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_5_1">
+  <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_2_1">
+ <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_3_1">
+  <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_6_1">
+ <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_7_1">
+  <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screw_9_1">
+  <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screw_8_1">
+    <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_14_1">
+    <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_20_1">
+  <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_16_1">
+    <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_15_1">
+    <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_18_1">
+    <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_19_1">
+  <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_21_1">
+    <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_17_1">
+    <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_11_1">
+    <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_10_1">
+    <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_4_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_5_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_6_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_3_1">
+   <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_2_1">
+ <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_1_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_10_1">
+   <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_7_1">
+ <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_12_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_11_1">
+   <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_8_1">
+   <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_9_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screw_bat_1">
+  <visual>  
+    <material>  
+      <ambient>133 255 26 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screw_batt_1">  <visual>  
+    <material>  
+      <ambient>133 255 26 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_18_1">
+   <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_15_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_14_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_16_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_13_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_17_1">
+   <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_22_1">
+   <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_23_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_24_1">
+  <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_19_1">
+   <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_20_1">
+   <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwb_21_1">
+   <visual>  
+    <material>  
+      <ambient>130 138 255 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screw_head_2">
+   <visual>  
+    <material>  
+      <ambient>255 172 38 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screw_headd__1">
+   <visual>  
+    <material>  
+      <ambient>255 172 38 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screw_neckk_1">
+    <visual>  
+    <material>  
+      <ambient>133 255 26 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screw_neck_1">
+    <visual>  
+    <material>  
+      <ambient>133 255 26 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_12_1">
+   <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="horn_1__1">
+   <visual>  
+    <material>  
+      <ambient>244 229 167 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="servo_rft_1">
+  <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="horn_5_1">
+    <visual>  
+    <material>  
+      <ambient>244 229 167 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="servo_rrt_1">
+   <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="horn_3_1">
+   <visual>  
+    <material>  
+      <ambient>244 229 167 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="horn_8_1">
+    <visual>  
+    <material>  
+      <ambient>244 229 167 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="servo_lrt__1">
+   <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="servo_head__1">
+  <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="neck_horn_1">
+   <visual>  
+    <material>  
+      <ambient>160 160 160 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="horn_9_1">
+  <visual>  
+    <material>  
+      <ambient>160 160 160 1.0</ambient>  
+     </material>  
+  </visual>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="screwr_13_1">
+   <visual>  
+    <material>  
+      <ambient>255 93 93 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="servo_lft_1">
+  <visual>  
+    <material>  
+      <ambient>25 25 25 1.0</ambient>  
+     </material>  
+  </visual> 
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+</robot>

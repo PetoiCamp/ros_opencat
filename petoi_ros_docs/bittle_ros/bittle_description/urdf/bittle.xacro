@@ -1,0 +1,2357 @@
+<?xml version="1.0" ?>
+<robot name="bittle" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find bittle_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find bittle_description)/urdf/bittle.trans" />
+<xacro:include filename="$(find bittle_description)/urdf/bittle.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.002168345924058267 4.1430032450566535e-08 0.02555254458454454" rpy="0 0 0"/>
+    <mass value="0.01989030949409733"/>
+    <inertia ixx="1.5e-05" iyy="2.4e-05" izz="3.8e-05" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="front__1">
+  <inertial>
+    <origin xyz="-0.00995696017036956 0.02800119957987551 -0.0005395302490400072" rpy="0 0 0"/>
+    <mass value="0.0039123866206911126"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="2e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.061733 0.028 -0.025792" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/front__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.061733 0.028 -0.025792" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/front__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="rear__1">
+  <inertial>
+    <origin xyz="0.009956960170745259 -0.027998805995973614 -0.0005395302462037725" rpy="0 0 0"/>
+    <mass value="0.003912386618757239"/>
+    <inertia ixx="2e-06" iyy="1e-06" izz="2e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.061733 -0.028 -0.025792" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/rear__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.061733 -0.028 -0.025792" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/rear__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_rfs_1">
+  <inertial>
+    <origin xyz="-0.012134511463850035 0.0033276213458265785 0.007005695786782645" rpy="0 0 0"/>
+    <mass value="0.016198785326804743"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.059645 0.036 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servo_rfs_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.059645 0.036 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servo_rfs_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_rrs__1">
+  <inertial>
+    <origin xyz="0.012134511463850035 0.0033276213458265508 0.007005695786782652" rpy="0 0 0"/>
+    <mass value="0.016198785326804747"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.059645 0.036 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servo_rrs__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.059645 0.036 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servo_rrs__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="c_neck__1">
+  <inertial>
+    <origin xyz="0.0003476160573467474 8.689791074277334e-16 0.0015392691836189978" rpy="0 0 0"/>
+    <mass value="0.0002786420162302464"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.044904 -0.0 -0.031351" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_neck__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.044904 -0.0 -0.031351" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_neck__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="head__1">
+  <inertial>
+    <origin xyz="0.01773367569221658 0.010875428717563109 0.005303020015208416" rpy="0 0 0"/>
+    <mass value="0.0047175875144439645"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.055711 0.017155 -0.060327" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/head__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.055711 0.017155 -0.060327" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/head__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="jaw_1">
+  <inertial>
+    <origin xyz="-0.0009535400770716435 0.0073141018408541866 0.015990572203006634" rpy="0 0 0"/>
+    <mass value="0.00390701419929372"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.06445 0.012925 -0.034027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/jaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.06445 0.012925 -0.034027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/jaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tho_rf__1">
+  <inertial>
+    <origin xyz="-0.020399619281867152 -1.772774812243416e-05 -0.0054647510340394435" rpy="0 0 0"/>
+    <mass value="0.0016124935043948178"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.038977 0.050355 -0.018377" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tho_rf__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.038977 0.050355 -0.018377" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tho_rf__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_neck__1">
+  <inertial>
+    <origin xyz="0.01000501101063378 -0.0036770959380430985 0.008458014805728817" rpy="0 0 0"/>
+    <mass value="0.016198785326804754"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.047554 -0.0 -0.035941" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servo_neck__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.047554 -0.0 -0.035941" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servo_neck__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tube__1">
+  <inertial>
+    <origin xyz="0.0011153307229088694 0.005350015413290346 -0.004241660835567474" rpy="0 0 0"/>
+    <mass value="0.0008476319886892588"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.02915 0.052607 -0.02028" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tube__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.02915 0.052607 -0.02028" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tube__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="th_rf_1">
+  <inertial>
+    <origin xyz="-0.01050527468812052 0.0005245346031438683 -0.0028130983482547826" rpy="0 0 0"/>
+    <mass value="0.0016124994656611404"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0525 0.0508 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/th_rf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0525 0.0508 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/th_rf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="c_thorf_1">
+  <inertial>
+    <origin xyz="0.0004222776002216107 0.003991736806568551 0.00011331940655908042" rpy="0 0 0"/>
+    <mass value="0.0003202445573374636"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.008067 0.054937 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thorf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.008067 0.054937 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thorf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_lfs_1">
+  <inertial>
+    <origin xyz="-0.012134511463850035 -0.0033276213458265855 0.007005695786782638" rpy="0 0 0"/>
+    <mass value="0.016198785326804747"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.059645 -0.036 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servo_lfs_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.059645 -0.036 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servo_lfs_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_lrs__1">
+  <inertial>
+    <origin xyz="0.012134511463850021 -0.0033276213458265577 0.007005695786782652" rpy="0 0 0"/>
+    <mass value="0.006359523128301122"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.059645 -0.036 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servo_lrs__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.059645 -0.036 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servo_lrs__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="a_1">
+  <inertial>
+    <origin xyz="0.0011980267759206685 0.00010035438122205087 -0.0010926527391464588" rpy="0 0 0"/>
+    <mass value="9.845210937902234e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.006412 0.032855 -0.027034" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/a_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.006412 0.032855 -0.027034" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/a_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="b__1">
+  <inertial>
+    <origin xyz="0.0012604376192366716 9.955965670559869e-05 -0.0005822422676032835" rpy="0 0 0"/>
+    <mass value="7.636356391604399e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.002835 0.03277 -0.025616" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/b__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.002835 0.03277 -0.025616" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/b__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="c_1">
+  <inertial>
+    <origin xyz="0.0004800725906685088 0.00010010236221810742 -0.0014636091148647126" rpy="0 0 0"/>
+    <mass value="5.729215470952315e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000594 0.032751 -0.026875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000594 0.032751 -0.026875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="d_1">
+  <inertial>
+    <origin xyz="0.0013568994912427604 9.998382103230258e-05 -0.0006094898025702025" rpy="0 0 0"/>
+    <mass value="7.529988845478445e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.002348 0.032764 -0.025618" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/d_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.002348 0.032764 -0.025618" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/d_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="e_1">
+  <inertial>
+    <origin xyz="0.00036682874729430416 0.00010009700467959737 -0.0010508795807335665" rpy="0 0 0"/>
+    <mass value="3.2406127639379744e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.005742 0.032834 -0.026061" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/e_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.005742 0.032834 -0.026061" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/e_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="f_1">
+  <inertial>
+    <origin xyz="0.00026038442460935094 9.992572222918689e-05 0.00026359871408457997" rpy="0 0 0"/>
+    <mass value="6.566767036300841e-07"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.00585 0.032837 -0.026934" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.00585 0.032837 -0.026934" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="c_thrf__1">
+  <inertial>
+    <origin xyz="-0.00042182341489750697 -0.00035936825370828235 -0.00011295581414910716" rpy="0 0 0"/>
+    <mass value="0.00032023395581114655"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0525 0.0485 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thrf__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0525 0.0485 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thrf__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="g_1">
+  <inertial>
+    <origin xyz="-0.0011980267759206286 -0.00010035438122204393 -0.0010926527391464866" rpy="0 0 0"/>
+    <mass value="9.845210937902277e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.006412 -0.032855 -0.027034" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/g_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.006412 -0.032855 -0.027034" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/g_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="h__1">
+  <inertial>
+    <origin xyz="-0.0012604376192366438 -9.955965670559869e-05 -0.0005822422676032661" rpy="0 0 0"/>
+    <mass value="7.636356391604351e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.002835 -0.03277 -0.025616" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/h__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.002835 -0.03277 -0.025616" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/h__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="i_1">
+  <inertial>
+    <origin xyz="-0.00048007259066848494 -0.00010010236221809354 -0.0014636091148647022" rpy="0 0 0"/>
+    <mass value="5.7292154709522875e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000594 -0.032751 -0.026875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/i_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000594 -0.032751 -0.026875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/i_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="j__1">
+  <inertial>
+    <origin xyz="-0.0013568994912426776 -9.998382103229564e-05 -0.0006094898025701886" rpy="0 0 0"/>
+    <mass value="7.529988845478345e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.002348 -0.032764 -0.025618" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/j__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.002348 -0.032764 -0.025618" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/j__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="k_1">
+  <inertial>
+    <origin xyz="-0.00036682874729428074 -0.00010009700467959043 -0.001050879580733556" rpy="0 0 0"/>
+    <mass value="3.2406127639379575e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.005742 -0.032834 -0.026061" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/k_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.005742 -0.032834 -0.026061" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/k_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_1">
+  <inertial>
+    <origin xyz="-0.0003683844246093254 -0.00010009700467959043 -2.4012859153980937e-06" rpy="0 0 0"/>
+    <mass value="6.56676703630094e-07"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.005742 -0.032834 -0.0272" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/l_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.005742 -0.032834 -0.0272" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/l_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shank_rf_1">
+  <inertial>
+    <origin xyz="0.02914718937367968 0.005499606726463185 -0.0015596735350774712" rpy="0 0 0"/>
+    <mass value="0.0023337750085593027"/>
+    <inertia ixx="0.0" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000151 0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/shank_rf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000151 0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/shank_rf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servos_rf_1">
+  <inertial>
+    <origin xyz="0.005739879729918549 0.012327652284320013 -0.0005018144365687635" rpy="0 0 0"/>
+    <mass value="0.016198785326804754"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.008067 0.04708 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servos_rf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.008067 0.04708 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servos_rf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tho_rr_1">
+  <inertial>
+    <origin xyz="-0.020408725212817044 -1.7727748122586817e-05 -0.005464751034039705" rpy="0 0 0"/>
+    <mass value="0.0016124935043948343"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.066023 0.050355 -0.018377" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tho_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.066023 0.050355 -0.018377" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tho_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tube_rr_1">
+  <inertial>
+    <origin xyz="0.0011068997341559944 0.005350055560855632 -0.004241660835570902" rpy="0 0 0"/>
+    <mass value="0.0008476319886892679"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.07585 0.052607 -0.02028" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tube_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.07585 0.052607 -0.02028" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tube_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="th_rr_1">
+  <inertial>
+    <origin xyz="-0.010514274143062795 0.000524534603143785 -0.0028130983482549457" rpy="0 0 0"/>
+    <mass value="0.0016124994656611426"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0525 0.0508 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/th_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0525 0.0508 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/th_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="c_thorr_1">
+  <inertial>
+    <origin xyz="0.00042227774781423977 0.003991708659830846 0.0001133224303485527" rpy="0 0 0"/>
+    <mass value="0.00032024480790842274"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.096933 0.054937 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thorr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.096933 0.054937 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thorr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shank_rr_1">
+  <inertial>
+    <origin xyz="0.029146293610457355 0.005499606726463067 -0.001559673535077303" rpy="0 0 0"/>
+    <mass value="0.0023337750085593014"/>
+    <inertia ixx="0.0" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.105151 0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/shank_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.105151 0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/shank_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="c_thrr_1">
+  <inertial>
+    <origin xyz="-0.0004218234148973682 -0.0003593682537082407 -0.00011295581414910022" rpy="0 0 0"/>
+    <mass value="0.00032023395581114384"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0525 0.0485 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thrr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0525 0.0485 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thrr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servos_rr_1">
+  <inertial>
+    <origin xyz="0.005739879729918462 0.01232765228431986 -0.0005018144365687583" rpy="0 0 0"/>
+    <mass value="0.01619878532680476"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.096933 0.04708 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servos_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.096933 0.04708 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servos_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tho_lf_1">
+  <inertial>
+    <origin xyz="-0.020399618230848855 1.7728746515156824e-05 -0.005464752801987643" rpy="0 0 0"/>
+    <mass value="0.001612494755128593"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.038977 -0.050355 -0.018377" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tho_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.038977 -0.050355 -0.018377" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tho_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tube_lf_1">
+  <inertial>
+    <origin xyz="0.001115432542211546 -0.005350009270953589 -0.004241568374152932" rpy="0 0 0"/>
+    <mass value="0.0008476239616137593"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.02915 -0.052607 -0.02028" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tube_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.02915 -0.052607 -0.02028" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tube_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="th_lf_1">
+  <inertial>
+    <origin xyz="-0.010505273662324732 -0.0005245335979957022 -0.002813100120197417" rpy="0 0 0"/>
+    <mass value="0.001612498214964083"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0525 -0.0508 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/th_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0525 -0.0508 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/th_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="c_tholf_1">
+  <inertial>
+    <origin xyz="0.0004222278652181253 -0.003991757543920296 0.00011334144666966424" rpy="0 0 0"/>
+    <mass value="0.0003202330738267581"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.008067 -0.054937 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_tholf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.008067 -0.054937 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_tholf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shank_lf_1">
+  <inertial>
+    <origin xyz="0.02914721079288764 -0.005501605881848795 -0.001559675747550105" rpy="0 0 0"/>
+    <mass value="0.0023337769575448"/>
+    <inertia ixx="0.0" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000151 -0.039582 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/shank_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000151 -0.039582 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/shank_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="c_thlf_1">
+  <inertial>
+    <origin xyz="-0.00042183741166247624 0.00035936726829538523 -0.00011295723467287175" rpy="0 0 0"/>
+    <mass value="0.00032023478629957983"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0525 -0.0485 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thlf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0525 -0.0485 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thlf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servos_lf_1">
+  <inertial>
+    <origin xyz="0.0057398797299185594 -0.012327652284320006 -0.0005018144365687965" rpy="0 0 0"/>
+    <mass value="0.016198785326804747"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.008067 -0.04708 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servos_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.008067 -0.04708 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servos_lf_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tho_lr_1">
+  <inertial>
+    <origin xyz="-0.02040872415473581 1.5728569829849548e-05 -0.00546475280198775" rpy="0 0 0"/>
+    <mass value="0.0016124947551285935"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.066023 -0.050357 -0.018377" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tho_lr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.066023 -0.050357 -0.018377" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tho_lr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tube_lr_1">
+  <inertial>
+    <origin xyz="0.0011069988135060799 -0.00535200943454444 -0.004241568724363105" rpy="0 0 0"/>
+    <mass value="0.0008476239616137176"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.07585 -0.052609 -0.02028" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tube_lr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.07585 -0.052609 -0.02028" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/tube_lr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="th_lr__1">
+  <inertial>
+    <origin xyz="-0.010514273124247346 -0.0005265337726153632 -0.0028131001201973233" rpy="0 0 0"/>
+    <mass value="0.0016124982149641033"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0525 -0.050802 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/th_lr__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0525 -0.050802 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/th_lr__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="c_tholr__1">
+  <inertial>
+    <origin xyz="0.0004222276405440456 -0.003993730098197278 0.00011333762429869935" rpy="0 0 0"/>
+    <mass value="0.00032023271018070503"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.096933 -0.054939 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_tholr__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.096933 -0.054939 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_tholr__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shank_lr_1">
+  <inertial>
+    <origin xyz="0.02914631503041326 -0.005501605881848684 -0.001559675747549909" rpy="0 0 0"/>
+    <mass value="0.002333776957544798"/>
+    <inertia ixx="0.0" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.105151 -0.039582 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/shank_lr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.105151 -0.039582 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/shank_lr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="c_thlr_1">
+  <inertial>
+    <origin xyz="-0.0004218374116626705 0.00035936726829547544 -0.0001129572346727746" rpy="0 0 0"/>
+    <mass value="0.00032023478629957365"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0525 -0.0485 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thlr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0525 -0.0485 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/c_thlr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servos_lr_1">
+  <inertial>
+    <origin xyz="0.005739879729918365 -0.012329652284319856 -0.00050181443656876" rpy="0 0 0"/>
+    <mass value="0.016198785326804757"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.096933 -0.047082 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servos_lr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.096933 -0.047082 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/servos_lr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo_5_1">
+  <inertial>
+    <origin xyz="-0.0003576311367131564 0.010281705860392199 -3.645048875927648e-07" rpy="0 0 0"/>
+    <mass value="2.7474230878753556e-05"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.000391 0.009195 -0.047292" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/logo_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.000391 0.009195 -0.047292" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/logo_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo_1_1">
+  <inertial>
+    <origin xyz="7.897556592527909e-08 -0.0009143605109901915 -3.645048875511314e-07" rpy="0 0 0"/>
+    <mass value="6.187758566141439e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.001444 0.003404 -0.047292" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/logo_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.001444 0.003404 -0.047292" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/logo_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo_2_1">
+  <inertial>
+    <origin xyz="1.766103635276843e-08 -0.0027433605109901914 -3.645048875511314e-07" rpy="0 0 0"/>
+    <mass value="5.198730228192608e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.001444 0.001575 -0.047292" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/logo_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.001444 0.001575 -0.047292" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/logo_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo_3_1">
+  <inertial>
+    <origin xyz="9.603378278127375e-05 -0.0008301113054484284 -3.645048875511314e-07" rpy="0 0 0"/>
+    <mass value="5.76728346297094e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.001453 -0.00513 -0.047292" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/logo_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.001453 -0.00513 -0.047292" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/logo_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo_4_1">
+  <inertial>
+    <origin xyz="-0.0008227487097844394 0.000954348161506061 -3.645048875511314e-07" rpy="0 0 0"/>
+    <mass value="9.865031710380425e-06"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.005058 0.009195 -0.047292" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/logo_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.005058 0.009195 -0.047292" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/logo_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="cover_1">
+  <inertial>
+    <origin xyz="-0.010740282241190646 0.0310061705224458 0.011579088374725328" rpy="0 0 0"/>
+    <mass value="0.01145258010304466"/>
+    <inertia ixx="5e-06" iyy="1.1e-05" izz="1.5e-05" ixy="0.0" iyz="0.0" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0 0.031 -0.030939" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/cover_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0 0.031 -0.030939" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/cover_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="battery_1">
+  <inertial>
+    <origin xyz="0.021876636754834252 -8.405303268755637e-05 -0.006111435741139797" rpy="0 0 0"/>
+    <mass value="0.013594087959397514"/>
+    <inertia ixx="2e-06" iyy="1e-05" izz="1.2e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.01725 -0.0 -0.023892" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.01725 -0.0 -0.023892" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_16_1">
+  <inertial>
+    <origin xyz="3.5399239883902867e-05 0.002386273833063113 1.144929752610463e-05" rpy="0 0 0"/>
+    <mass value="0.00021522876485296385"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.059645 0.0375 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_16_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.059645 0.0375 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_16_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_7_1">
+  <inertial>
+    <origin xyz="2.023197698169943e-05 0.002386273833063765 2.0365464983358728e-05" rpy="0 0 0"/>
+    <mass value="0.00021522876485299827"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.034963 0.0375 -0.032125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.034963 0.0375 -0.032125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_1_1">
+  <inertial>
+    <origin xyz="-2.023197721254255e-05 0.002386273838377709 2.036546522995314e-05" rpy="0 0 0"/>
+    <mass value="0.0002152287663382458"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034963 0.0375 -0.032125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034963 0.0375 -0.032125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_15_1">
+  <inertial>
+    <origin xyz="-3.5399240008303356e-05 0.0023862738383773757 1.1449297833938249e-05" rpy="0 0 0"/>
+    <mass value="0.00021522876633824363"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.059645 0.0375 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_15_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.059645 0.0375 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_15_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_5_1">
+  <inertial>
+    <origin xyz="3.5399240007491506e-05 -0.0023862738383777227 1.1449297833702327e-05" rpy="0 0 0"/>
+    <mass value="0.00021522876633823235"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.059645 -0.0375 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.059645 -0.0375 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_10_1">
+  <inertial>
+    <origin xyz="2.023197721186948e-05 -0.002386273838378375 2.0365465229425783e-05" rpy="0 0 0"/>
+    <mass value="0.00021522876633826504"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.034963 -0.0375 -0.032125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_10_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.034963 -0.0375 -0.032125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_10_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_13_1">
+  <inertial>
+    <origin xyz="-2.0231976982365563e-05 -0.002386273833063078 2.0365464983886084e-05" rpy="0 0 0"/>
+    <mass value="0.00021522876485297846"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.034963 -0.0375 -0.032125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_13_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.034963 -0.0375 -0.032125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_13_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_14_1">
+  <inertial>
+    <origin xyz="-3.5399239884721656e-05 -0.002386273833062752 1.1449297526337082e-05" rpy="0 0 0"/>
+    <mass value="0.00021522876485297472"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.059645 -0.0375 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_14_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.059645 -0.0375 -0.017875" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_14_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_9_1">
+  <inertial>
+    <origin xyz="-1.8779526647600222e-06 0.0023850033433142 6.676052083525591e-06" rpy="0 0 0"/>
+    <mass value="0.00021522876485297553"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000151 0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000151 0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_19_1">
+  <inertial>
+    <origin xyz="-4.929926908642246e-05 0.0023818413081924325 5.259061679472807e-06" rpy="0 0 0"/>
+    <mass value="0.00021504501718234542"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.07676 0.03958 -0.008329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_19_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.07676 0.03958 -0.008329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_19_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_11_1">
+  <inertial>
+    <origin xyz="-6.762782125671607e-05 0.0023818413081932235 6.75324837759797e-06" rpy="0 0 0"/>
+    <mass value="0.00021504501718233682"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.105151 0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_11_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.105151 0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_11_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_2_1">
+  <inertial>
+    <origin xyz="-1.8779524813087862e-06 -0.0023850033486378097 6.676052546632574e-06" rpy="0 0 0"/>
+    <mass value="0.00021522876633824444"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000151 -0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000151 -0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_20_1">
+  <inertial>
+    <origin xyz="1.6435420507596166e-05 -0.0023850033486380803 5.183193854627413e-06" rpy="0 0 0"/>
+    <mass value="0.00021522876633825325"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.02824 -0.03958 -0.008329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_20_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.02824 -0.03958 -0.008329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_20_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_3_1">
+  <inertial>
+    <origin xyz="-6.76278205984232e-05 -0.002381841312984509 6.753248706220516e-06" rpy="0 0 0"/>
+    <mass value="0.00021504501871632382"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.105151 -0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.105151 -0.03958 -0.010813" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_12_1">
+  <inertial>
+    <origin xyz="-4.929926855493094e-05 -0.002381841312983822 5.259062019195848e-06" rpy="0 0 0"/>
+    <mass value="0.0002150450187163436"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.07676 -0.03958 -0.008329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_12_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.07676 -0.03958 -0.008329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_12_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screwm_1_1">
+  <inertial>
+    <origin xyz="-1.9785754150056234e-05 0.0015292669918754928 3.4735600435327474e-06" rpy="0 0 0"/>
+    <mass value="0.00015536650819282258"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.096933 0.05158 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.096933 0.05158 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screwm_2_1">
+  <inertial>
+    <origin xyz="-1.1335884450729139e-05 0.0015296508929469599 5.524163095776274e-06" rpy="0 0 0"/>
+    <mass value="0.00015536650819283573"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0525 0.0495 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0525 0.0495 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screwm_3_1">
+  <inertial>
+    <origin xyz="-1.8705698141691096e-06 0.001544803183332076 -1.8811424240556401e-06" rpy="0 0 0"/>
+    <mass value="0.000155377876273771"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.008067 0.05158 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.008067 0.05158 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screwm_4_1">
+  <inertial>
+    <origin xyz="-7.37854790353043e-06 0.001544533692537764 -3.5705334147997925e-06" rpy="0 0 0"/>
+    <mass value="0.0001553778762737756"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0525 0.0495 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0525 0.0495 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screwm_5_1">
+  <inertial>
+    <origin xyz="-7.378548322431455e-06 -0.001544533696204553 -3.570532322291764e-06" rpy="0 0 0"/>
+    <mass value="0.0001553778771942567"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0525 -0.0495 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0525 -0.0495 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screwm_6_1">
+  <inertial>
+    <origin xyz="-1.8705702632404453e-06 -0.0015448031869974774 -1.8811413396470356e-06" rpy="0 0 0"/>
+    <mass value="0.00015537787719425232"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.008067 -0.05158 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.008067 -0.05158 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screwm_8_1">
+  <inertial>
+    <origin xyz="-1.978575310683517e-05 -0.001529266995642535 3.473560480322241e-06" rpy="0 0 0"/>
+    <mass value="0.00015536650913630212"/>
+    <inertia ixx="0.0" iyy="-0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.096933 -0.05158 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.096933 -0.05158 -0.010094" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screwm_7_1">
+  <inertial>
+    <origin xyz="-1.1335883461374707e-05 -0.0015296508967114694 5.524163518150216e-06" rpy="0 0 0"/>
+    <mass value="0.00015536650913631548"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0525 -0.0495 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0525 -0.0495 -0.022" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screwm_7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_18_1">
+  <inertial>
+    <origin xyz="0.00157978694253251 -5.17652568463034e-06 0.0027100960665014454" rpy="0 0 0"/>
+    <mass value="0.00021546873291128856"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.06445 0.012925 -0.034027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_18_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.06445 0.012925 -0.034027" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_18_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_4_1">
+  <inertial>
+    <origin xyz="0.0008430432513749156 1.7441204459966303e-06 0.0014502220032721475" rpy="0 0 0"/>
+    <mass value="0.00021546873291130613"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.046179 -0.005264 -0.046261" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.046179 -0.005264 -0.046261" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_17_1">
+  <inertial>
+    <origin xyz="-0.001174799810430359 -0.0008553337714827221 -0.002067204247370044" rpy="0 0 0"/>
+    <mass value="0.0002152287663382586"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.045904 0.00675 -0.033083" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_17_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.045904 0.00675 -0.033083" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_17_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_21_1">
+  <inertial>
+    <origin xyz="-0.0011746645308375395 0.0008541636216472994 -0.0020669699362363993" rpy="0 0 0"/>
+    <mass value="0.00021522876633827887"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.045904 -0.00675 -0.033083" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_21_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.045904 -0.00675 -0.033083" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_21_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="screw_6_1">
+  <inertial>
+    <origin xyz="0.0007669480407760387 -6.399272109451423e-07 0.001332486596943759" rpy="0 0 0"/>
+    <mass value="0.00015537436580217523"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.045304 -0.0 -0.032044" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.045304 -0.0 -0.032044" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+<link name="screw_8_1">
+  <inertial>
+    <origin xyz="1.6435420446735127e-05 0.0023850033433144846 5.183193380785961e-06" rpy="0 0 0"/>
+    <mass value="0.00021522876485298548"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.02824 0.03958 -0.008329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.02824 0.03958 -0.008329" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://bittle_description/meshes/screw_8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 1" type="fixed">
+  <origin xyz="0.061733 -0.028 0.025792" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="front__1"/>
+</joint>
+
+<joint name="Rigid 2" type="fixed">
+  <origin xyz="-0.061733 0.028 0.025792" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="rear__1"/>
+</joint>
+
+<joint name="Rigid 3" type="fixed">
+  <origin xyz="0.059645 -0.036 0.017875" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="servo_rfs_1"/>
+</joint>
+
+<joint name="Rigid 5" type="fixed">
+  <origin xyz="-0.059645 -0.036 0.017875" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="servo_rrs__1"/>
+</joint>
+
+<joint name="Rigid 7" type="fixed">
+  <origin xyz="0.044904 0.0 0.031351" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="c_neck__1"/>
+</joint>
+
+<joint name="Rigid 8" type="fixed">
+  <origin xyz="-0.008739 -0.00423 0.0263" rpy="0 0 0"/>
+  <parent link="jaw_1"/>
+  <child link="head__1"/>
+</joint>
+
+<joint name="Rigid 9" type="fixed">
+  <origin xyz="0.016896 -0.012925 -0.001914" rpy="0 0 0"/>
+  <parent link="servo_neck__1"/>
+  <child link="jaw_1"/>
+</joint>
+
+<joint name="Rigid 10" type="fixed">
+  <origin xyz="-0.013523 0.000445 -0.003623" rpy="0 0 0"/>
+  <parent link="th_rf_1"/>
+  <child link="tho_rf__1"/>
+</joint>
+
+<joint name="neck_joint" type="continuous">
+  <origin xyz="0.00265 0.0 0.00459" rpy="0 0 0"/>
+  <parent link="c_neck__1"/>
+  <child link="servo_neck__1"/>
+  <axis xyz="-0.5 -0.0 -0.866025"/>
+</joint>
+
+<joint name="Rigid 12" type="fixed">
+  <origin xyz="-0.02335 -0.001807 -0.00172" rpy="0 0 0"/>
+  <parent link="th_rf_1"/>
+  <child link="tube__1"/>
+</joint>
+
+<joint name="Rigid 13" type="fixed">
+  <origin xyz="0.0 -0.0023 0.0" rpy="0 0 0"/>
+  <parent link="c_thrf__1"/>
+  <child link="th_rf_1"/>
+</joint>
+
+<joint name="Rigid 14" type="fixed">
+  <origin xyz="-0.03091 -0.004582 -0.008283" rpy="0 0 0"/>
+  <parent link="tho_rf__1"/>
+  <child link="c_thorf_1"/>
+</joint>
+
+<joint name="Rigid 4" type="fixed">
+  <origin xyz="0.059645 0.036 0.017875" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="servo_lfs_1"/>
+</joint>
+
+<joint name="Rigid 6" type="fixed">
+  <origin xyz="-0.059645 0.036 0.017875" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="servo_lrs__1"/>
+</joint>
+
+<joint name="Rigid 17" type="fixed">
+  <origin xyz="-0.006412 -0.032855 0.027034" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="a_1"/>
+</joint>
+
+<joint name="Rigid 18" type="fixed">
+  <origin xyz="-0.002835 -0.03277 0.025616" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="b__1"/>
+</joint>
+
+<joint name="Rigid 19" type="fixed">
+  <origin xyz="0.000594 -0.032751 0.026875" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="c_1"/>
+</joint>
+
+<joint name="Rigid 20" type="fixed">
+  <origin xyz="0.002348 -0.032764 0.025618" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="d_1"/>
+</joint>
+
+<joint name="Rigid 21" type="fixed">
+  <origin xyz="0.005742 -0.032834 0.026061" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="e_1"/>
+</joint>
+
+<joint name="Rigid 22" type="fixed">
+  <origin xyz="0.00585 -0.032837 0.026934" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="f_1"/>
+</joint>
+
+<joint name="shrfs_joint" type="continuous">
+  <origin xyz="-0.007145 -0.0125 0.004125" rpy="0 0 0"/>
+  <parent link="servo_rfs_1"/>
+  <child link="c_thrf__1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Rigid 24" type="fixed">
+  <origin xyz="0.006412 0.032855 0.027034" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="g_1"/>
+</joint>
+
+<joint name="Rigid 25" type="fixed">
+  <origin xyz="0.002835 0.03277 0.025616" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="h__1"/>
+</joint>
+
+<joint name="Rigid 26" type="fixed">
+  <origin xyz="-0.000594 0.032751 0.026875" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="i_1"/>
+</joint>
+
+<joint name="Rigid 27" type="fixed">
+  <origin xyz="-0.002348 0.032764 0.025618" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="j__1"/>
+</joint>
+
+<joint name="Rigid 28" type="fixed">
+  <origin xyz="-0.005742 0.032834 0.026061" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="k_1"/>
+</joint>
+
+<joint name="Rigid 29" type="fixed">
+  <origin xyz="-0.005742 0.032834 0.0272" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="l_1"/>
+</joint>
+
+<joint name="Rigid 30" type="fixed">
+  <origin xyz="-0.008218 0.0075 0.000719" rpy="0 0 0"/>
+  <parent link="servos_rf_1"/>
+  <child link="shank_rf_1"/>
+</joint>
+
+<joint name="shrft_joint" type="continuous">
+  <origin xyz="0.0 0.007857 0.0" rpy="0 0 0"/>
+  <parent link="c_thorf_1"/>
+  <child link="servos_rf_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Rigid 32" type="fixed">
+  <origin xyz="-0.013523 0.000445 -0.003623" rpy="0 0 0"/>
+  <parent link="th_rr_1"/>
+  <child link="tho_rr_1"/>
+</joint>
+
+<joint name="Rigid 33" type="fixed">
+  <origin xyz="-0.02335 -0.001807 -0.00172" rpy="0 0 0"/>
+  <parent link="th_rr_1"/>
+  <child link="tube_rr_1"/>
+</joint>
+
+<joint name="Rigid 34" type="fixed">
+  <origin xyz="0.0 -0.0023 0.0" rpy="0 0 0"/>
+  <parent link="c_thrr_1"/>
+  <child link="th_rr_1"/>
+</joint>
+
+<joint name="Rigid 35" type="fixed">
+  <origin xyz="-0.03091 -0.004582 -0.008283" rpy="0 0 0"/>
+  <parent link="tho_rr_1"/>
+  <child link="c_thorr_1"/>
+</joint>
+
+<joint name="Rigid 36" type="fixed">
+  <origin xyz="-0.008218 0.0075 0.000719" rpy="0 0 0"/>
+  <parent link="servos_rr_1"/>
+  <child link="shank_rr_1"/>
+</joint>
+
+<joint name="shrrs_joint" type="continuous">
+  <origin xyz="0.007145 -0.0125 0.004125" rpy="0 0 0"/>
+  <parent link="servo_rrs__1"/>
+  <child link="c_thrr_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+</joint>
+
+<joint name="shrrt_joint" type="continuous">
+  <origin xyz="0.0 0.007857 0.0" rpy="0 0 0"/>
+  <parent link="c_thorr_1"/>
+  <child link="servos_rr_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Rigid 39" type="fixed">
+  <origin xyz="-0.013523 -0.000445 -0.003623" rpy="0 0 0"/>
+  <parent link="th_lf_1"/>
+  <child link="tho_lf_1"/>
+</joint>
+
+<joint name="Rigid 40" type="fixed">
+  <origin xyz="-0.02335 0.001807 -0.00172" rpy="0 0 0"/>
+  <parent link="th_lf_1"/>
+  <child link="tube_lf_1"/>
+</joint>
+
+<joint name="Rigid 41" type="fixed">
+  <origin xyz="0.0 0.0023 0.0" rpy="0 0 0"/>
+  <parent link="c_thlf_1"/>
+  <child link="th_lf_1"/>
+</joint>
+
+<joint name="Rigid 42" type="fixed">
+  <origin xyz="-0.03091 0.004582 -0.008283" rpy="0 0 0"/>
+  <parent link="tho_lf_1"/>
+  <child link="c_tholf_1"/>
+</joint>
+
+<joint name="Rigid 43" type="fixed">
+  <origin xyz="-0.008218 -0.007498 0.000719" rpy="0 0 0"/>
+  <parent link="servos_lf_1"/>
+  <child link="shank_lf_1"/>
+</joint>
+
+<joint name="shlfs_joint" type="continuous">
+  <origin xyz="-0.007145 0.0125 0.004125" rpy="0 0 0"/>
+  <parent link="servo_lfs_1"/>
+  <child link="c_thlf_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="shlft_joint" type="continuous">
+  <origin xyz="0.0 -0.007857 0.0" rpy="0 0 0"/>
+  <parent link="c_tholf_1"/>
+  <child link="servos_lf_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid 46" type="fixed">
+  <origin xyz="-0.013523 -0.000445 -0.003623" rpy="0 0 0"/>
+  <parent link="th_lr__1"/>
+  <child link="tho_lr_1"/>
+</joint>
+
+<joint name="Rigid 47" type="fixed">
+  <origin xyz="-0.02335 0.001807 -0.00172" rpy="0 0 0"/>
+  <parent link="th_lr__1"/>
+  <child link="tube_lr_1"/>
+</joint>
+
+<joint name="Rigid 48" type="fixed">
+  <origin xyz="0.0 0.002302 0.0" rpy="0 0 0"/>
+  <parent link="c_thlr_1"/>
+  <child link="th_lr__1"/>
+</joint>
+
+<joint name="Rigid 49" type="fixed">
+  <origin xyz="-0.03091 0.004582 -0.008283" rpy="0 0 0"/>
+  <parent link="tho_lr_1"/>
+  <child link="c_tholr__1"/>
+</joint>
+
+<joint name="Rigid 50" type="fixed">
+  <origin xyz="-0.008218 -0.0075 0.000719" rpy="0 0 0"/>
+  <parent link="servos_lr_1"/>
+  <child link="shank_lr_1"/>
+</joint>
+
+<joint name="shlrs_joint" type="continuous">
+  <origin xyz="0.007145 0.0125 0.004125" rpy="0 0 0"/>
+  <parent link="servo_lrs__1"/>
+  <child link="c_thlr_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="shlrt_joint" type="continuous">
+  <origin xyz="0.0 -0.007857 0.0" rpy="0 0 0"/>
+  <parent link="c_tholr__1"/>
+  <child link="servos_lr_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Rigid 53" type="fixed">
+  <origin xyz="0.000391 0.021805 0.016353" rpy="0 0 0"/>
+  <parent link="cover_1"/>
+  <child link="logo_5_1"/>
+</joint>
+
+<joint name="Rigid 54" type="fixed">
+  <origin xyz="-0.001444 0.027596 0.016353" rpy="0 0 0"/>
+  <parent link="cover_1"/>
+  <child link="logo_1_1"/>
+</joint>
+
+<joint name="Rigid 55" type="fixed">
+  <origin xyz="-0.001444 0.029425 0.016353" rpy="0 0 0"/>
+  <parent link="cover_1"/>
+  <child link="logo_2_1"/>
+</joint>
+
+<joint name="Rigid 56" type="fixed">
+  <origin xyz="-0.001453 0.03613 0.016353" rpy="0 0 0"/>
+  <parent link="cover_1"/>
+  <child link="logo_3_1"/>
+</joint>
+
+<joint name="Rigid 57" type="fixed">
+  <origin xyz="0.005058 0.021805 0.016353" rpy="0 0 0"/>
+  <parent link="cover_1"/>
+  <child link="logo_4_1"/>
+</joint>
+
+<joint name="Rigid 58" type="fixed">
+  <origin xyz="0.0 -0.031 0.030939" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="cover_1"/>
+</joint>
+
+<joint name="Rigid 59" type="fixed">
+  <origin xyz="-0.01725 0.0 0.023892" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="battery_1"/>
+</joint>
+
+<joint name="Rigid 60" type="fixed">
+  <origin xyz="0.0 -0.0015 0.0" rpy="0 0 0"/>
+  <parent link="servo_rfs_1"/>
+  <child link="screw_16_1"/>
+</joint>
+
+<joint name="Rigid 61" type="fixed">
+  <origin xyz="-0.024682 -0.0015 0.01425" rpy="0 0 0"/>
+  <parent link="servo_rfs_1"/>
+  <child link="screw_7_1"/>
+</joint>
+
+<joint name="Rigid 62" type="fixed">
+  <origin xyz="0.024682 -0.0015 0.01425" rpy="0 0 0"/>
+  <parent link="servo_rrs__1"/>
+  <child link="screw_1_1"/>
+</joint>
+
+<joint name="Rigid 63" type="fixed">
+  <origin xyz="0.0 -0.0015 0.0" rpy="0 0 0"/>
+  <parent link="servo_rrs__1"/>
+  <child link="screw_15_1"/>
+</joint>
+
+<joint name="Rigid 64" type="fixed">
+  <origin xyz="0.0 0.0015 0.0" rpy="0 0 0"/>
+  <parent link="servo_lfs_1"/>
+  <child link="screw_5_1"/>
+</joint>
+
+<joint name="Rigid 65" type="fixed">
+  <origin xyz="-0.024682 0.0015 0.01425" rpy="0 0 0"/>
+  <parent link="servo_lfs_1"/>
+  <child link="screw_10_1"/>
+</joint>
+
+<joint name="Rigid 66" type="fixed">
+  <origin xyz="0.024682 0.0015 0.01425" rpy="0 0 0"/>
+  <parent link="servo_lrs__1"/>
+  <child link="screw_13_1"/>
+</joint>
+
+<joint name="Rigid 67" type="fixed">
+  <origin xyz="0.0 0.0015 0.0" rpy="0 0 0"/>
+  <parent link="servo_lrs__1"/>
+  <child link="screw_14_1"/>
+</joint>
+
+<joint name="Rigid 68" type="fixed">
+  <origin xyz="-0.008218 0.0075 0.000719" rpy="0 0 0"/>
+  <parent link="servos_rf_1"/>
+  <child link="screw_9_1"/>
+</joint>
+
+<joint name="Rigid 69" type="fixed">
+  <origin xyz="0.020173 0.0075 -0.001765" rpy="0 0 0"/>
+  <parent link="servos_rr_1"/>
+  <child link="screw_19_1"/>
+</joint>
+
+<joint name="Rigid 70" type="fixed">
+  <origin xyz="-0.008218 0.0075 0.000719" rpy="0 0 0"/>
+  <parent link="servos_rr_1"/>
+  <child link="screw_11_1"/>
+</joint>
+
+<joint name="Rigid 71" type="fixed">
+  <origin xyz="-0.008218 -0.0075 0.000719" rpy="0 0 0"/>
+  <parent link="servos_lf_1"/>
+  <child link="screw_2_1"/>
+</joint>
+
+<joint name="Rigid 72" type="fixed">
+  <origin xyz="0.020173 -0.0075 -0.001765" rpy="0 0 0"/>
+  <parent link="servos_lf_1"/>
+  <child link="screw_20_1"/>
+</joint>
+
+<joint name="Rigid 73" type="fixed">
+  <origin xyz="-0.008218 -0.007502 0.000719" rpy="0 0 0"/>
+  <parent link="servos_lr_1"/>
+  <child link="screw_3_1"/>
+</joint>
+
+<joint name="Rigid 74" type="fixed">
+  <origin xyz="0.020173 -0.007502 -0.001765" rpy="0 0 0"/>
+  <parent link="servos_lr_1"/>
+  <child link="screw_12_1"/>
+</joint>
+
+<joint name="Rigid 75" type="fixed">
+  <origin xyz="0.0 0.003357 0.0" rpy="0 0 0"/>
+  <parent link="c_thorr_1"/>
+  <child link="screwm_1_1"/>
+</joint>
+
+<joint name="Rigid 76" type="fixed">
+  <origin xyz="0.0 -0.001 0.0" rpy="0 0 0"/>
+  <parent link="c_thrr_1"/>
+  <child link="screwm_2_1"/>
+</joint>
+
+<joint name="Rigid 77" type="fixed">
+  <origin xyz="0.0 0.003357 0.0" rpy="0 0 0"/>
+  <parent link="c_thorf_1"/>
+  <child link="screwm_3_1"/>
+</joint>
+
+<joint name="Rigid 78" type="fixed">
+  <origin xyz="0.0 -0.001 0.0" rpy="0 0 0"/>
+  <parent link="c_thrf__1"/>
+  <child link="screwm_4_1"/>
+</joint>
+
+<joint name="Rigid 79" type="fixed">
+  <origin xyz="0.0 0.001 0.0" rpy="0 0 0"/>
+  <parent link="c_thlf_1"/>
+  <child link="screwm_5_1"/>
+</joint>
+
+<joint name="Rigid 80" type="fixed">
+  <origin xyz="0.0 -0.003357 0.0" rpy="0 0 0"/>
+  <parent link="c_tholf_1"/>
+  <child link="screwm_6_1"/>
+</joint>
+
+<joint name="Rigid 81" type="fixed">
+  <origin xyz="0.0 -0.003359 0.0" rpy="0 0 0"/>
+  <parent link="c_tholr__1"/>
+  <child link="screwm_8_1"/>
+</joint>
+
+<joint name="Rigid 82" type="fixed">
+  <origin xyz="0.0 0.001 0.0" rpy="0 0 0"/>
+  <parent link="c_thlr_1"/>
+  <child link="screwm_7_1"/>
+</joint>
+
+<joint name="Rigid 83" type="fixed">
+  <origin xyz="0.016896 -0.012925 -0.001914" rpy="0 0 0"/>
+  <parent link="servo_neck__1"/>
+  <child link="screw_18_1"/>
+</joint>
+
+<joint name="Rigid 84" type="fixed">
+  <origin xyz="-0.001375 0.005264 0.01032" rpy="0 0 0"/>
+  <parent link="servo_neck__1"/>
+  <child link="screw_4_1"/>
+</joint>
+
+<joint name="Rigid 85" type="fixed">
+  <origin xyz="0.001 -0.00675 0.001732" rpy="0 0 0"/>
+  <parent link="c_neck__1"/>
+  <child link="screw_17_1"/>
+</joint>
+
+<joint name="Rigid 86" type="fixed">
+  <origin xyz="0.001 0.00675 0.001732" rpy="0 0 0"/>
+  <parent link="c_neck__1"/>
+  <child link="screw_21_1"/>
+</joint>
+
+<joint name="Rigid 87" type="fixed">
+  <origin xyz="0.0004 0.0 0.000693" rpy="0 0 0"/>
+  <parent link="c_neck__1"/>
+  <child link="screw_6_1"/>
+</joint>
+<joint name="Rigid 88" type="fixed">
+  <origin xyz="0.020173 0.0075 -0.001765" rpy="0 0 0"/>
+  <parent link="servos_rf_1"/>
+  <child link="screw_8_1"/>
+</joint>
+
+</robot>
