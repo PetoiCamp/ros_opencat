@@ -1,0 +1,51 @@
+
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  shrfs_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shrfs_joint
+    pid: {p: 0.0, i: 0.0, d: 0.0}
+  shrft_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shrft_joint
+    pid: {p: 0.0, i: 0.0, d: 0.0}
+  shrrs_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shrrs_joint
+    pid: {p: 0.0, i: 0.0, d: 0.0}
+  shrrt_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shrrt_joint
+    pid: {p: 0.0, i: 0.0, d: 0.0}
+  shlfs_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shlfs_joint
+    pid: {p: 0.0, i: 0.0, d: 0.0}
+  shlrs_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shlrs_joint
+    pid: {p: 0.0, i: 0.0, d: 0.0}
+  shlrt_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shlrt_joint
+    pid: {p: 0.0, i: 0.0, d: 0.0}
+  head_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: head_joint
+    pid: {p: 0.01, i: 0.01, d: 0.01}
+  neck_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: neck_joint 
+    pid: {p: 0.001, i: 0.001, d: 0.001}
+  tail_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: tail_joint 
+    pid: {p: 0.0, i: 0.0, d: 0.0}
+  shlft_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shlft_joint 
+    pid: {p: 0.0, i: 0.0, d: 0.0}
