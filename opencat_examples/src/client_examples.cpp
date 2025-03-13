@@ -1,9 +1,8 @@
-#include "opencat/base_task.h"
 #include "opencat/opencat.hpp"
 #include "ros/node_handle.h"
 #include "ros/ros.h"
 
-using opencat::base_task;
+using opencat_msgs::base_task;
 const vector<int16_t> pee{
     -4, 0,  10,  1,  2,   3,  3,  30,  20, 0,   0,  15, -10, 60, -10,
     40, 40, 90,  45, 10,  60, 70, 45,  6,  0,   0,  0,  45,  20, 0,

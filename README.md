@@ -11,9 +11,9 @@ Control robots powered by [OpenCat](https://github.com/PetoiCamp/OpenCat) using 
 ## Usage
 ### Install
 
-**NOTE**: due to multi-threading in make process, `catkin_make` may fail, in that case just rerun the command multiple times.
+**NOTE**: due to multi-threading in make process, `catkin build` may fail, in that case just rerun the command multiple times.
 
-Make sure you have installed ROS and can run `catkin_make`. In `src` directory, run
+Make sure you have installed ROS and can run `catkin build`. In `src` directory, run
 ``` sh
 git clone https://github.com/TomCC7/ros_opencat
 cd ros_opencat
@@ -21,7 +21,7 @@ cd ros_opencat
 git submodule init
 git submodule update
 cd ../..
-catkin_make
+catkin build
 source ./devel/setup.sh
 ```
 
@@ -63,7 +63,7 @@ docker run -v path/to/workspace:/workspace \
 ```bash
 cd /workspace
 source /opt/ros/noetic/setup.bash
-catkin_make
+catkin build
 source devel/setup.bash
 ```
 

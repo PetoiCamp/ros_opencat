@@ -1,6 +1,6 @@
 from enum import IntEnum, auto
 import rospy
-from opencat.srv import base_task
+from opencat_msgs.srv import base_task
 from dataclasses import dataclass
 
 

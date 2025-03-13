@@ -6,11 +6,11 @@
  **/
 #ifndef OPENCAT_H_
 #define OPENCAT_H_
-#include "opencat/base_task.h"
+#include "opencat_msgs/base_task.h"
 #include "ros/ros.h"
 #include <cstdint>
 #include <vector>
-using opencat::base_task;
+using opencat_msgs::base_task;
 using std::vector;
 
 namespace OpenCat
