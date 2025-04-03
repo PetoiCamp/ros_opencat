@@ -16,28 +16,36 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-
-# find dependencies
+# Find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
-# service files
 find_package(rosidl_default_generators REQUIRED)
+find_package(type_description_interfaces REQUIRED)
+find_package(opencat_msgs REQUIRED)
+find_package(rclcpp REQUIRED)
 
-rosidl_generate_interfaces(${PROJECT_NAME}_srv
-  "srv/BaseTask.srv"
+# Create a library or executable
+add_library(${PROJECT_NAME} src/opencat/opencat.cpp)
+
+ament_target_dependencies(${PROJECT_NAME}
+  type_description_interfaces
 )
 
-include_directories(include)
-add_library(${PROJECT_NAME} src/opencat/opencat.cpp)
-rosidl_target_interfaces(${PROJECT_NAME}
-      ${PROJECT_NAME}_srv "rosidl_typesupport_cpp")
+# Link libraries
+target_link_libraries(${PROJECT_NAME}
+  rclcpp
+  # type_description_interfaces
+)
 
+# Include directories
+include_directories(include)
+include_directories(${rclcpp_INCLUDE_DIRS})
+include_directories(${opencat_msgs_INCLUDE_DIRS})
+
+# Export the targets
 ament_export_targets(${PROJECT_NAME} HAS_LIBRARY_TARGET)
 ament_export_dependencies(rosidl_default_generators)
 
-# export lib
+# Install the library and headers
 install(
   DIRECTORY include/
   DESTINATION include
@@ -52,14 +60,9 @@ install(
   INCLUDES DESTINATION include
 )
 
+# Testing configuration
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # uncomment the line when a copyright and license is not present in all source files
-  #set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # uncomment the line when this package is not in a git repo
-  #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
 

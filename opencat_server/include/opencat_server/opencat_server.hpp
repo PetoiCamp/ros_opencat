@@ -1,11 +1,11 @@
 #ifndef OPENCAT_CONTROL_H_
 #define OPENCAT_CONTROL_H_
-#include "opencat/srv/base_task.hpp"
+#include "opencat_msgs/srv/base_task.hpp"
 #include "opencat_serial/opencat_serial.hpp"
-#include <opencat/srv/detail/base_task__struct.hpp>
+#include <opencat_msgs/srv/detail/base_task__struct.hpp>
 #include <string>
 #include <vector>
-using namespace opencat::srv;
+using namespace opencat_msgs::srv;
 using std::vector;
 
 namespace OpenCat
