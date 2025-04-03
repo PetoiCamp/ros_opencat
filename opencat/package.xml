@@ -7,6 +7,9 @@
   <maintainer email="cc7@duck.com">C.C</maintainer>
   <license>MIT</license>
 
+  <depend>rclcpp</depend>
+  <depend>opencat_msgs</depend>
+
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <test_depend>ament_lint_auto</test_depend>

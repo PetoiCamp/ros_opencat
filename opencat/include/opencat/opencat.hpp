@@ -6,7 +6,8 @@
  **/
 #ifndef OPENCAT_H_
 #define OPENCAT_H_
-#include "opencat/srv/base_task.hpp"
+
+#include "opencat_msgs/srv/base_task.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include <cstdint>
 #include <vector>
@@ -14,7 +15,7 @@ using std::vector;
 
 namespace OpenCat
 {
-using namespace opencat::srv;
+using namespace opencat_msgs::srv;
 /**
  * @brief list all commands available
  **/

@@ -22,17 +22,30 @@ find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
-find_package(opencat_serial REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(opencat REQUIRED)
+find_package(opencat_msgs REQUIRED)
+find_package(opencat_serial REQUIRED)
+find_package(opencat_server REQUIRED)
+
+# Add linker directory explicitly
+link_directories("/opt/ros/jazzy/lib")
 
 add_executable(serial_example src/serial_example.cpp)
 ament_target_dependencies(serial_example
-  opencat_serial)
+  rclcpp
+  opencat
+  opencat_msgs
+  opencat_serial
+  opencat_server)
 
 add_executable(client_example src/client_example.cpp)
 ament_target_dependencies(client_example
+  rclcpp
+  opencat
+  opencat_msgs
   opencat_serial
-  rclcpp)
+  opencat_server)
 
 install(
   TARGETS serial_example client_example

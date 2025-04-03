@@ -1,8 +1,8 @@
 #include "opencat/opencat.hpp"
-#include "opencat/srv/base_task.hpp"
+#include "opencat_msgs/srv/base_task.hpp"
 #include "rclcpp/rclcpp.hpp"
 
-using namespace opencat::srv;
+using namespace opencat_msgs::srv;
 const vector<int16_t> pee{
     -4, 0,  10,  1,  2,   3,  3,  30,  20, 0,   0,  15, -10, 60, -10,
     40, 40, 90,  45, 10,  60, 70, 45,  6,  0,   0,  0,  45,  20, 0,

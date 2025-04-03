@@ -20,8 +20,11 @@ endif()
 find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
+find_package(type_description_interfaces REQUIRED)
+find_package(rclcpp REQUIRED)
 find_package(serial REQUIRED)
 find_package(opencat REQUIRED)
+find_package(opencat_msgs REQUIRED)
 
 include_directories(include)
 add_library(
@@ -29,8 +32,11 @@ add_library(
   src/${PROJECT_NAME}/${PROJECT_NAME}.cpp)
 
 ament_target_dependencies(${PROJECT_NAME}
+  rclcpp
   opencat
-  serial)
+  opencat_msgs
+  serial
+  type_description_interfaces)
 
 ament_export_targets(${PROJECT_NAME} HAS_LIBRARY_TARGET)
 ament_export_dependencies(opencat serial)
